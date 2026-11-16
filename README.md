@@ -8,7 +8,7 @@
 | Md Sajjan | 2401010272 |
 | Sibtain Ahmed Qureshi | 2401010454 |
 | Abuzar Haideri | 2401010024 |
-| Antik Mandal | 2401010084 |
+| Antik Mondal | 2401010084 |
 
 A parameterised **output-stationary N×N systolic array** (default 4×4, also tested at 3×3) for **signed INT8 / Q3.4 fixed-point** matrix multiplication with 32-bit accumulators. It is written in synthesisable Verilog, verified with self-checking testbenches plus a NumPy golden model, and synthesised and placed-and-routed for FPGA. It is compared against a sequential single-MAC baseline and a pipelined-MAC variant.
 
