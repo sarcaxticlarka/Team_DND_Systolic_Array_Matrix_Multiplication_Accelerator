@@ -41,4 +41,5 @@ module output_buffer #(
         end
     end
     assign rd_data = row_data[rd_col*ACC_W +: ACC_W];
+    
 endmodule
