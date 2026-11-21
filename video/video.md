@@ -4,7 +4,7 @@
 
 ▶ **[Watch the demonstration video on Google Drive](https://drive.google.com/file/d/1E0eEdf72pwOTkX3Pw1p8LjV24Erbv5UM/view?usp=sharing)**
 
-The video runs `./demo.sh` from the project root and shows:
+The video shows the simulations running in the terminal:
 
 1. MAC unit test: 74 checks pass
 2. Processing element test: 14 checks pass

@@ -7,3 +7,6 @@ synth/vivado_out/
 report/build.log
 *.aux
 .DS_Store
+
+# local demo script (kept off GitHub)
+demo.sh

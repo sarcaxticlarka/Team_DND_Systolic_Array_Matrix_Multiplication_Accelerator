@@ -68,7 +68,7 @@ All result tables are in [`docs/results_summary.md`](docs/results_summary.md) (a
 | Quantitative metric | Latency, throughput (MAC/cycle, GOPS), speed-up |
 | Synthesis: resources and Fmax | Report Table V (Artix-7 + ECP5 post-route Fmax) |
 | Baseline / alternative comparison | Sequential 1-MAC baseline and pipelined-MAC alternative |
-| Report and live demo | IEEE PDF, [demo video](https://drive.google.com/file/d/1E0eEdf72pwOTkX3Pw1p8LjV24Erbv5UM/view?usp=sharing), `demo.sh` and the Basys-3 demo |
+| Report and live demo | IEEE PDF, [demo video](https://drive.google.com/file/d/1E0eEdf72pwOTkX3Pw1p8LjV24Erbv5UM/view?usp=sharing) and the Basys-3 demo |
 
 ### Report sections (IEEE format)
 Abstract ✔ · Literature Review ✔ · Proposed Solution ✔ · Individual Contributions ✔ · References ✔ (17 IEEE-style references, numbered in order of citation). It also has Verification, Results and Conclusion sections.
@@ -88,15 +88,8 @@ docs/       results_summary.md, *.csv, figures/*.png
 report/     main.tex (IEEEtran), main.pdf
 presentation/  slides (.pptx/.pdf) and speaker script
 video/      video.md (demonstration video link)
-demo.sh     step-by-step terminal demo
 run_all.sh  regenerates every result
 ```
-
-## Run the demo
-```bash
-./demo.sh
-```
-Runs the MAC, PE and full 4×4 array tests, the NumPy check and the speed comparison step by step (press Enter between steps; `NOPAUSE=1 ./demo.sh` runs straight through).
 
 ## How to reproduce
 ```bash
