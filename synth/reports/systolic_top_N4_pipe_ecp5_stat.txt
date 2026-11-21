@@ -1,0 +1,23 @@
+
+12. Printing statistics.
+
+=== systolic_top ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1725 wires
+     4597 wire bits
+     1725 public wires
+     4597 public wire bits
+       14 ports
+       71 port bits
+     2607 cells
+       39   $scopeinfo
+      268   CCU2C
+        3   L6MUX21
+      509   LUT4
+       16   MULT18X18D
+       67   PFUMX
+       16   TRELLIS_DPR16X4
+     1689   TRELLIS_FF
+

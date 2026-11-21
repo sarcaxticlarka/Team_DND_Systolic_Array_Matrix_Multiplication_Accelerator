@@ -1,0 +1,36 @@
+PERF N=2 systolic=7 sequential=13 macs=8 pes=4 errors=0
+RESULT: COMPARE N=2 PASSED (speed-up 1.86x)
+tb/tb_compare.v:79: $finish called at 4834000 (1ps)
+PERFPIPE N=2 systolic=8 sequential=13 macs=8 pes=4 errors=0
+RESULT: COMPARE N=2 PASSED (speed-up 1.62x)
+tb/tb_compare.v:79: $finish called at 4834000 (1ps)
+PERF N=3 systolic=10 sequential=37 macs=27 pes=9 errors=0
+RESULT: COMPARE N=3 PASSED (speed-up 3.70x)
+tb/tb_compare.v:79: $finish called at 11639000 (1ps)
+PERFPIPE N=3 systolic=11 sequential=37 macs=27 pes=9 errors=0
+RESULT: COMPARE N=3 PASSED (speed-up 3.36x)
+tb/tb_compare.v:79: $finish called at 11639000 (1ps)
+PERF N=4 systolic=13 sequential=81 macs=64 pes=16 errors=0
+RESULT: COMPARE N=4 PASSED (speed-up 6.23x)
+tb/tb_compare.v:79: $finish called at 23436000 (1ps)
+PERFPIPE N=4 systolic=14 sequential=81 macs=64 pes=16 errors=0
+RESULT: COMPARE N=4 PASSED (speed-up 5.79x)
+tb/tb_compare.v:79: $finish called at 23436000 (1ps)
+PERF N=5 systolic=16 sequential=151 macs=125 pes=25 errors=0
+RESULT: COMPARE N=5 PASSED (speed-up 9.44x)
+tb/tb_compare.v:79: $finish called at 41235000 (1ps)
+PERFPIPE N=5 systolic=17 sequential=151 macs=125 pes=25 errors=0
+RESULT: COMPARE N=5 PASSED (speed-up 8.88x)
+tb/tb_compare.v:79: $finish called at 41235000 (1ps)
+PERF N=6 systolic=19 sequential=253 macs=216 pes=36 errors=0
+RESULT: COMPARE N=6 PASSED (speed-up 13.32x)
+tb/tb_compare.v:79: $finish called at 66236000 (1ps)
+PERFPIPE N=6 systolic=20 sequential=253 macs=216 pes=36 errors=0
+RESULT: COMPARE N=6 PASSED (speed-up 12.65x)
+tb/tb_compare.v:79: $finish called at 66236000 (1ps)
+PERF N=8 systolic=25 sequential=577 macs=512 pes=64 errors=0
+RESULT: COMPARE N=8 PASSED (speed-up 23.08x)
+tb/tb_compare.v:79: $finish called at 142834000 (1ps)
+PERFPIPE N=8 systolic=26 sequential=577 macs=512 pes=64 errors=0
+RESULT: COMPARE N=8 PASSED (speed-up 22.19x)
+tb/tb_compare.v:79: $finish called at 142834000 (1ps)

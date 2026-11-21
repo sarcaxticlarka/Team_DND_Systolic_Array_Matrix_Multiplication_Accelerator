@@ -1,0 +1,2129 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+
+-- Running command `read_verilog rtl/mac_unit.v rtl/pe.v rtl/input_buffer.v rtl/skew_buffer.v rtl/systolic_array.v rtl/output_buffer.v rtl/systolic_controller.v rtl/systolic_top.v rtl/sequential_matmul.v; chparam -set N 4 sequential_matmul;         synth_xilinx -family xc7 -top sequential_matmul -flatten; tee -o synth/reports/sequential_matmul_N4_xc7_stat.txt stat' --
+
+1. Executing Verilog-2005 frontend: rtl/mac_unit.v
+Parsing Verilog input from `rtl/mac_unit.v' to AST representation.
+Generating RTLIL representation for module `\mac_unit'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/pe.v
+Parsing Verilog input from `rtl/pe.v' to AST representation.
+Generating RTLIL representation for module `\pe'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/input_buffer.v
+Parsing Verilog input from `rtl/input_buffer.v' to AST representation.
+Generating RTLIL representation for module `\input_buffer'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/skew_buffer.v
+Parsing Verilog input from `rtl/skew_buffer.v' to AST representation.
+Generating RTLIL representation for module `\skew_buffer'.
+Warning: Replacing memory \lane[3].sr with list of registers. See rtl/skew_buffer.v:29
+Warning: Replacing memory \lane[2].sr with list of registers. See rtl/skew_buffer.v:29
+Warning: Replacing memory \lane[1].sr with list of registers. See rtl/skew_buffer.v:29
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/systolic_array.v
+Parsing Verilog input from `rtl/systolic_array.v' to AST representation.
+Generating RTLIL representation for module `\systolic_array'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/output_buffer.v
+Parsing Verilog input from `rtl/output_buffer.v' to AST representation.
+Generating RTLIL representation for module `\output_buffer'.
+Warning: Replacing memory \res with list of registers. See rtl/output_buffer.v:38
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/systolic_controller.v
+Parsing Verilog input from `rtl/systolic_controller.v' to AST representation.
+Generating RTLIL representation for module `\systolic_controller'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/systolic_top.v
+Parsing Verilog input from `rtl/systolic_top.v' to AST representation.
+Generating RTLIL representation for module `\systolic_top'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: rtl/sequential_matmul.v
+Parsing Verilog input from `rtl/sequential_matmul.v' to AST representation.
+Generating RTLIL representation for module `\sequential_matmul'.
+Successfully finished Verilog frontend.
+Parameter \N = 4
+
+10. Executing AST frontend in derive mode using pre-parsed AST for module `\sequential_matmul'.
+Parameter \N = 4
+Generating RTLIL representation for module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+
+11. Executing SYNTH_XILINX pass.
+
+11.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v' to AST representation.
+Generating RTLIL representation for module `\VCC'.
+Generating RTLIL representation for module `\GND'.
+Generating RTLIL representation for module `\IBUF'.
+Generating RTLIL representation for module `\IBUFG'.
+Generating RTLIL representation for module `\OBUF'.
+Generating RTLIL representation for module `\IOBUF'.
+Generating RTLIL representation for module `\OBUFT'.
+Generating RTLIL representation for module `\BUFG'.
+Generating RTLIL representation for module `\BUFGCTRL'.
+Generating RTLIL representation for module `\BUFHCE'.
+Generating RTLIL representation for module `\INV'.
+Generating RTLIL representation for module `\LUT1'.
+Generating RTLIL representation for module `\LUT2'.
+Generating RTLIL representation for module `\LUT3'.
+Generating RTLIL representation for module `\LUT4'.
+Generating RTLIL representation for module `\LUT5'.
+Generating RTLIL representation for module `\LUT6'.
+Generating RTLIL representation for module `\LUT6_2'.
+Generating RTLIL representation for module `\$__ABC9_LUT7'.
+Generating RTLIL representation for module `\$__ABC9_LUT8'.
+Generating RTLIL representation for module `\MUXCY'.
+Generating RTLIL representation for module `\MUXF5'.
+Generating RTLIL representation for module `\MUXF6'.
+Generating RTLIL representation for module `\MUXF7'.
+Generating RTLIL representation for module `\MUXF8'.
+Generating RTLIL representation for module `\MUXF9'.
+Generating RTLIL representation for module `\XORCY'.
+Generating RTLIL representation for module `\CARRY4'.
+Generating RTLIL representation for module `\CARRY8'.
+Generating RTLIL representation for module `\ORCY'.
+Generating RTLIL representation for module `\MULT_AND'.
+Generating RTLIL representation for module `\FDRE'.
+Generating RTLIL representation for module `\FDRE_1'.
+Generating RTLIL representation for module `\FDSE'.
+Generating RTLIL representation for module `\FDSE_1'.
+Generating RTLIL representation for module `\FDRSE'.
+Generating RTLIL representation for module `\FDRSE_1'.
+Generating RTLIL representation for module `\FDCE'.
+Generating RTLIL representation for module `\FDCE_1'.
+Generating RTLIL representation for module `\FDPE'.
+Generating RTLIL representation for module `\FDPE_1'.
+Generating RTLIL representation for module `\FDCPE'.
+Generating RTLIL representation for module `\FDCPE_1'.
+Generating RTLIL representation for module `\LDCE'.
+Generating RTLIL representation for module `\LDPE'.
+Generating RTLIL representation for module `\LDCPE'.
+Generating RTLIL representation for module `\AND2B1L'.
+Generating RTLIL representation for module `\OR2L'.
+Generating RTLIL representation for module `\RAM16X1S'.
+Generating RTLIL representation for module `\RAM16X1S_1'.
+Generating RTLIL representation for module `\RAM32X1S'.
+Generating RTLIL representation for module `\RAM32X1S_1'.
+Generating RTLIL representation for module `\RAM64X1S'.
+Generating RTLIL representation for module `\RAM64X1S_1'.
+Generating RTLIL representation for module `\RAM128X1S'.
+Generating RTLIL representation for module `\RAM128X1S_1'.
+Generating RTLIL representation for module `\RAM256X1S'.
+Generating RTLIL representation for module `\RAM512X1S'.
+Generating RTLIL representation for module `\RAM16X2S'.
+Generating RTLIL representation for module `\RAM32X2S'.
+Generating RTLIL representation for module `\RAM64X2S'.
+Generating RTLIL representation for module `\RAM16X4S'.
+Generating RTLIL representation for module `\RAM32X4S'.
+Generating RTLIL representation for module `\RAM16X8S'.
+Generating RTLIL representation for module `\RAM32X8S'.
+Generating RTLIL representation for module `\RAM16X1D'.
+Generating RTLIL representation for module `\RAM16X1D_1'.
+Generating RTLIL representation for module `\RAM32X1D'.
+Generating RTLIL representation for module `\RAM32X1D_1'.
+Generating RTLIL representation for module `\RAM64X1D'.
+Generating RTLIL representation for module `\RAM64X1D_1'.
+Generating RTLIL representation for module `\RAM128X1D'.
+Generating RTLIL representation for module `\RAM256X1D'.
+Generating RTLIL representation for module `\RAM32M'.
+Generating RTLIL representation for module `\RAM32M16'.
+Generating RTLIL representation for module `\RAM64M'.
+Generating RTLIL representation for module `\RAM64M8'.
+Generating RTLIL representation for module `\RAM32X16DR8'.
+Generating RTLIL representation for module `\RAM64X8SW'.
+Generating RTLIL representation for module `\ROM16X1'.
+Generating RTLIL representation for module `\ROM32X1'.
+Generating RTLIL representation for module `\ROM64X1'.
+Generating RTLIL representation for module `\ROM128X1'.
+Generating RTLIL representation for module `\ROM256X1'.
+Generating RTLIL representation for module `\SRL16'.
+Generating RTLIL representation for module `\SRL16E'.
+Generating RTLIL representation for module `\SRLC16'.
+Generating RTLIL representation for module `\SRLC16E'.
+Generating RTLIL representation for module `\SRLC32E'.
+Generating RTLIL representation for module `\CFGLUT5'.
+Generating RTLIL representation for module `\MULT18X18'.
+Generating RTLIL representation for module `\MULT18X18S'.
+Generating RTLIL representation for module `\MULT18X18SIO'.
+Generating RTLIL representation for module `\DSP48A'.
+Generating RTLIL representation for module `\DSP48A1'.
+Generating RTLIL representation for module `\DSP48'.
+Generating RTLIL representation for module `\DSP48E1'.
+Generating RTLIL representation for module `\RAMB18E1'.
+Generating RTLIL representation for module `\RAMB36E1'.
+Successfully finished Verilog frontend.
+
+11.2. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_xtra.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_xtra.v' to AST representation.
+Generating RTLIL representation for module `\RAMB4_S1'.
+Generating RTLIL representation for module `\RAMB4_S2'.
+Generating RTLIL representation for module `\RAMB4_S4'.
+Generating RTLIL representation for module `\RAMB4_S8'.
+Generating RTLIL representation for module `\RAMB4_S16'.
+Generating RTLIL representation for module `\RAMB4_S1_S1'.
+Generating RTLIL representation for module `\RAMB4_S1_S2'.
+Generating RTLIL representation for module `\RAMB4_S1_S4'.
+Generating RTLIL representation for module `\RAMB4_S1_S8'.
+Generating RTLIL representation for module `\RAMB4_S1_S16'.
+Generating RTLIL representation for module `\RAMB4_S2_S2'.
+Generating RTLIL representation for module `\RAMB4_S2_S4'.
+Generating RTLIL representation for module `\RAMB4_S2_S8'.
+Generating RTLIL representation for module `\RAMB4_S2_S16'.
+Generating RTLIL representation for module `\RAMB4_S4_S4'.
+Generating RTLIL representation for module `\RAMB4_S4_S8'.
+Generating RTLIL representation for module `\RAMB4_S4_S16'.
+Generating RTLIL representation for module `\RAMB4_S8_S8'.
+Generating RTLIL representation for module `\RAMB4_S8_S16'.
+Generating RTLIL representation for module `\RAMB4_S16_S16'.
+Generating RTLIL representation for module `\RAMB16_S1'.
+Generating RTLIL representation for module `\RAMB16_S2'.
+Generating RTLIL representation for module `\RAMB16_S4'.
+Generating RTLIL representation for module `\RAMB16_S9'.
+Generating RTLIL representation for module `\RAMB16_S18'.
+Generating RTLIL representation for module `\RAMB16_S36'.
+Generating RTLIL representation for module `\RAMB16_S1_S1'.
+Generating RTLIL representation for module `\RAMB16_S1_S2'.
+Generating RTLIL representation for module `\RAMB16_S1_S4'.
+Generating RTLIL representation for module `\RAMB16_S1_S9'.
+Generating RTLIL representation for module `\RAMB16_S1_S18'.
+Generating RTLIL representation for module `\RAMB16_S1_S36'.
+Generating RTLIL representation for module `\RAMB16_S2_S2'.
+Generating RTLIL representation for module `\RAMB16_S2_S4'.
+Generating RTLIL representation for module `\RAMB16_S2_S9'.
+Generating RTLIL representation for module `\RAMB16_S2_S18'.
+Generating RTLIL representation for module `\RAMB16_S2_S36'.
+Generating RTLIL representation for module `\RAMB16_S4_S4'.
+Generating RTLIL representation for module `\RAMB16_S4_S9'.
+Generating RTLIL representation for module `\RAMB16_S4_S18'.
+Generating RTLIL representation for module `\RAMB16_S4_S36'.
+Generating RTLIL representation for module `\RAMB16_S9_S9'.
+Generating RTLIL representation for module `\RAMB16_S9_S18'.
+Generating RTLIL representation for module `\RAMB16_S9_S36'.
+Generating RTLIL representation for module `\RAMB16_S18_S18'.
+Generating RTLIL representation for module `\RAMB16_S18_S36'.
+Generating RTLIL representation for module `\RAMB16_S36_S36'.
+Generating RTLIL representation for module `\RAMB16BWE_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36'.
+Generating RTLIL representation for module `\RAMB16BWE_S18_S9'.
+Generating RTLIL representation for module `\RAMB16BWE_S18_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S9'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S18'.
+Generating RTLIL representation for module `\RAMB16BWE_S36_S36'.
+Generating RTLIL representation for module `\RAMB16BWER'.
+Generating RTLIL representation for module `\RAMB8BWER'.
+Generating RTLIL representation for module `\FIFO16'.
+Generating RTLIL representation for module `\RAMB16'.
+Generating RTLIL representation for module `\RAMB32_S64_ECC'.
+Generating RTLIL representation for module `\FIFO18'.
+Generating RTLIL representation for module `\FIFO18_36'.
+Generating RTLIL representation for module `\FIFO36'.
+Generating RTLIL representation for module `\FIFO36_72'.
+Generating RTLIL representation for module `\RAMB18'.
+Generating RTLIL representation for module `\RAMB36'.
+Generating RTLIL representation for module `\RAMB18SDP'.
+Generating RTLIL representation for module `\RAMB36SDP'.
+Generating RTLIL representation for module `\FIFO18E1'.
+Generating RTLIL representation for module `\FIFO36E1'.
+Generating RTLIL representation for module `\FIFO18E2'.
+Generating RTLIL representation for module `\FIFO36E2'.
+Generating RTLIL representation for module `\RAMB18E2'.
+Generating RTLIL representation for module `\RAMB36E2'.
+Generating RTLIL representation for module `\URAM288'.
+Generating RTLIL representation for module `\URAM288_BASE'.
+Generating RTLIL representation for module `\DSP48E'.
+Generating RTLIL representation for module `\DSP48E2'.
+Generating RTLIL representation for module `\FDDRCPE'.
+Generating RTLIL representation for module `\FDDRRSE'.
+Generating RTLIL representation for module `\IFDDRCPE'.
+Generating RTLIL representation for module `\IFDDRRSE'.
+Generating RTLIL representation for module `\OFDDRCPE'.
+Generating RTLIL representation for module `\OFDDRRSE'.
+Generating RTLIL representation for module `\OFDDRTCPE'.
+Generating RTLIL representation for module `\OFDDRTRSE'.
+Generating RTLIL representation for module `\IDDR2'.
+Generating RTLIL representation for module `\ODDR2'.
+Generating RTLIL representation for module `\IDDR'.
+Generating RTLIL representation for module `\IDDR_2CLK'.
+Generating RTLIL representation for module `\ODDR'.
+Generating RTLIL representation for module `\IDELAYCTRL'.
+Generating RTLIL representation for module `\IDELAY'.
+Generating RTLIL representation for module `\ISERDES'.
+Generating RTLIL representation for module `\OSERDES'.
+Generating RTLIL representation for module `\IODELAY'.
+Generating RTLIL representation for module `\ISERDES_NODELAY'.
+Generating RTLIL representation for module `\IODELAYE1'.
+Generating RTLIL representation for module `\ISERDESE1'.
+Generating RTLIL representation for module `\OSERDESE1'.
+Generating RTLIL representation for module `\IDELAYE2'.
+Generating RTLIL representation for module `\ODELAYE2'.
+Generating RTLIL representation for module `\ISERDESE2'.
+Generating RTLIL representation for module `\OSERDESE2'.
+Generating RTLIL representation for module `\PHASER_IN'.
+Generating RTLIL representation for module `\PHASER_IN_PHY'.
+Generating RTLIL representation for module `\PHASER_OUT'.
+Generating RTLIL representation for module `\PHASER_OUT_PHY'.
+Generating RTLIL representation for module `\PHASER_REF'.
+Generating RTLIL representation for module `\PHY_CONTROL'.
+Generating RTLIL representation for module `\IDDRE1'.
+Generating RTLIL representation for module `\ODDRE1'.
+Generating RTLIL representation for module `\IDELAYE3'.
+Generating RTLIL representation for module `\ODELAYE3'.
+Generating RTLIL representation for module `\ISERDESE3'.
+Generating RTLIL representation for module `\OSERDESE3'.
+Generating RTLIL representation for module `\BITSLICE_CONTROL'.
+Generating RTLIL representation for module `\RIU_OR'.
+Generating RTLIL representation for module `\RX_BITSLICE'.
+Generating RTLIL representation for module `\RXTX_BITSLICE'.
+Generating RTLIL representation for module `\TX_BITSLICE'.
+Generating RTLIL representation for module `\TX_BITSLICE_TRI'.
+Generating RTLIL representation for module `\IODELAY2'.
+Generating RTLIL representation for module `\IODRP2'.
+Generating RTLIL representation for module `\IODRP2_MCB'.
+Generating RTLIL representation for module `\ISERDES2'.
+Generating RTLIL representation for module `\OSERDES2'.
+Generating RTLIL representation for module `\IBUF_DLY_ADJ'.
+Generating RTLIL representation for module `\IBUF_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUF_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUF_ANALOG'.
+Generating RTLIL representation for module `\IBUFE3'.
+Generating RTLIL representation for module `\IBUFDS'.
+Generating RTLIL representation for module `\IBUFDS_DLY_ADJ'.
+Generating RTLIL representation for module `\IBUFDS_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT_IBUFDISABLE'.
+Generating RTLIL representation for module `\IBUFDS_DIFF_OUT_INTERMDISABLE'.
+Generating RTLIL representation for module `\IBUFDSE3'.
+Generating RTLIL representation for module `\IBUFDS_DPHY'.
+Generating RTLIL representation for module `\IBUFGDS'.
+Generating RTLIL representation for module `\IBUFGDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IOBUF_DCIEN'.
+Generating RTLIL representation for module `\IOBUF_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFE3'.
+Generating RTLIL representation for module `\IOBUFDS'.
+Generating RTLIL representation for module `\IOBUFDS_DCIEN'.
+Generating RTLIL representation for module `\IOBUFDS_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT_DCIEN'.
+Generating RTLIL representation for module `\IOBUFDS_DIFF_OUT_INTERMDISABLE'.
+Generating RTLIL representation for module `\IOBUFDSE3'.
+Generating RTLIL representation for module `\OBUFDS'.
+Generating RTLIL representation for module `\OBUFDS_DPHY'.
+Generating RTLIL representation for module `\OBUFTDS'.
+Generating RTLIL representation for module `\KEEPER'.
+Generating RTLIL representation for module `\PULLDOWN'.
+Generating RTLIL representation for module `\PULLUP'.
+Generating RTLIL representation for module `\DCIRESET'.
+Generating RTLIL representation for module `\HPIO_VREF'.
+Generating RTLIL representation for module `\BUFGCE'.
+Generating RTLIL representation for module `\BUFGCE_1'.
+Generating RTLIL representation for module `\BUFGMUX'.
+Generating RTLIL representation for module `\BUFGMUX_1'.
+Generating RTLIL representation for module `\BUFGMUX_CTRL'.
+Generating RTLIL representation for module `\BUFGMUX_VIRTEX4'.
+Generating RTLIL representation for module `\BUFG_GT'.
+Generating RTLIL representation for module `\BUFG_GT_SYNC'.
+Generating RTLIL representation for module `\BUFG_PS'.
+Generating RTLIL representation for module `\BUFGCE_DIV'.
+Generating RTLIL representation for module `\BUFH'.
+Generating RTLIL representation for module `\BUFIO2'.
+Generating RTLIL representation for module `\BUFIO2_2CLK'.
+Generating RTLIL representation for module `\BUFIO2FB'.
+Generating RTLIL representation for module `\BUFPLL'.
+Generating RTLIL representation for module `\BUFPLL_MCB'.
+Generating RTLIL representation for module `\BUFIO'.
+Generating RTLIL representation for module `\BUFIODQS'.
+Generating RTLIL representation for module `\BUFR'.
+Generating RTLIL representation for module `\BUFMR'.
+Generating RTLIL representation for module `\BUFMRCE'.
+Generating RTLIL representation for module `\DCM'.
+Generating RTLIL representation for module `\DCM_SP'.
+Generating RTLIL representation for module `\DCM_CLKGEN'.
+Generating RTLIL representation for module `\DCM_ADV'.
+Generating RTLIL representation for module `\DCM_BASE'.
+Generating RTLIL representation for module `\DCM_PS'.
+Generating RTLIL representation for module `\PMCD'.
+Generating RTLIL representation for module `\PLL_ADV'.
+Generating RTLIL representation for module `\PLL_BASE'.
+Generating RTLIL representation for module `\MMCM_ADV'.
+Generating RTLIL representation for module `\MMCM_BASE'.
+Generating RTLIL representation for module `\MMCME2_ADV'.
+Generating RTLIL representation for module `\MMCME2_BASE'.
+Generating RTLIL representation for module `\PLLE2_ADV'.
+Generating RTLIL representation for module `\PLLE2_BASE'.
+Generating RTLIL representation for module `\MMCME3_ADV'.
+Generating RTLIL representation for module `\MMCME3_BASE'.
+Generating RTLIL representation for module `\PLLE3_ADV'.
+Generating RTLIL representation for module `\PLLE3_BASE'.
+Generating RTLIL representation for module `\MMCME4_ADV'.
+Generating RTLIL representation for module `\MMCME4_BASE'.
+Generating RTLIL representation for module `\PLLE4_ADV'.
+Generating RTLIL representation for module `\PLLE4_BASE'.
+Generating RTLIL representation for module `\BUFT'.
+Generating RTLIL representation for module `\IN_FIFO'.
+Generating RTLIL representation for module `\OUT_FIFO'.
+Generating RTLIL representation for module `\HARD_SYNC'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3E'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN3A'.
+Generating RTLIL representation for module `\STARTUP_SPARTAN6'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX4'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX5'.
+Generating RTLIL representation for module `\STARTUP_VIRTEX6'.
+Generating RTLIL representation for module `\STARTUPE2'.
+Generating RTLIL representation for module `\STARTUPE3'.
+Generating RTLIL representation for module `\CAPTURE_SPARTAN3'.
+Generating RTLIL representation for module `\CAPTURE_SPARTAN3A'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX4'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX5'.
+Generating RTLIL representation for module `\CAPTURE_VIRTEX6'.
+Generating RTLIL representation for module `\CAPTUREE2'.
+Generating RTLIL representation for module `\ICAP_SPARTAN3A'.
+Generating RTLIL representation for module `\ICAP_SPARTAN6'.
+Generating RTLIL representation for module `\ICAP_VIRTEX4'.
+Generating RTLIL representation for module `\ICAP_VIRTEX5'.
+Generating RTLIL representation for module `\ICAP_VIRTEX6'.
+Generating RTLIL representation for module `\ICAPE2'.
+Generating RTLIL representation for module `\ICAPE3'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN3'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN3A'.
+Generating RTLIL representation for module `\BSCAN_SPARTAN6'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX4'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX5'.
+Generating RTLIL representation for module `\BSCAN_VIRTEX6'.
+Generating RTLIL representation for module `\BSCANE2'.
+Generating RTLIL representation for module `\DNA_PORT'.
+Generating RTLIL representation for module `\DNA_PORTE2'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX4'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX5'.
+Generating RTLIL representation for module `\FRAME_ECC_VIRTEX6'.
+Generating RTLIL representation for module `\FRAME_ECCE2'.
+Generating RTLIL representation for module `\FRAME_ECCE3'.
+Generating RTLIL representation for module `\FRAME_ECCE4'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX4'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX5'.
+Generating RTLIL representation for module `\USR_ACCESS_VIRTEX6'.
+Generating RTLIL representation for module `\USR_ACCESSE2'.
+Generating RTLIL representation for module `\POST_CRC_INTERNAL'.
+Generating RTLIL representation for module `\SUSPEND_SYNC'.
+Generating RTLIL representation for module `\KEY_CLEAR'.
+Generating RTLIL representation for module `\MASTER_JTAG'.
+Generating RTLIL representation for module `\SPI_ACCESS'.
+Generating RTLIL representation for module `\EFUSE_USR'.
+Generating RTLIL representation for module `\SYSMON'.
+Generating RTLIL representation for module `\XADC'.
+Generating RTLIL representation for module `\SYSMONE1'.
+Generating RTLIL representation for module `\SYSMONE4'.
+Generating RTLIL representation for module `\GTPA1_DUAL'.
+Generating RTLIL representation for module `\GT11_CUSTOM'.
+Generating RTLIL representation for module `\GT11_DUAL'.
+Generating RTLIL representation for module `\GT11CLK'.
+Generating RTLIL representation for module `\GT11CLK_MGT'.
+Generating RTLIL representation for module `\GTP_DUAL'.
+Generating RTLIL representation for module `\GTX_DUAL'.
+Generating RTLIL representation for module `\CRC32'.
+Generating RTLIL representation for module `\CRC64'.
+Generating RTLIL representation for module `\GTHE1_QUAD'.
+Generating RTLIL representation for module `\GTXE1'.
+Generating RTLIL representation for module `\IBUFDS_GTXE1'.
+Generating RTLIL representation for module `\IBUFDS_GTHE1'.
+Generating RTLIL representation for module `\GTHE2_CHANNEL'.
+Generating RTLIL representation for module `\GTHE2_COMMON'.
+Generating RTLIL representation for module `\GTPE2_CHANNEL'.
+Generating RTLIL representation for module `\GTPE2_COMMON'.
+Generating RTLIL representation for module `\GTXE2_CHANNEL'.
+Generating RTLIL representation for module `\GTXE2_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE2'.
+Generating RTLIL representation for module `\GTHE3_CHANNEL'.
+Generating RTLIL representation for module `\GTHE3_COMMON'.
+Generating RTLIL representation for module `\GTYE3_CHANNEL'.
+Generating RTLIL representation for module `\GTYE3_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE3'.
+Generating RTLIL representation for module `\OBUFDS_GTE3'.
+Generating RTLIL representation for module `\OBUFDS_GTE3_ADV'.
+Generating RTLIL representation for module `\GTHE4_CHANNEL'.
+Generating RTLIL representation for module `\GTHE4_COMMON'.
+Generating RTLIL representation for module `\GTYE4_CHANNEL'.
+Generating RTLIL representation for module `\GTYE4_COMMON'.
+Generating RTLIL representation for module `\IBUFDS_GTE4'.
+Generating RTLIL representation for module `\OBUFDS_GTE4'.
+Generating RTLIL representation for module `\OBUFDS_GTE4_ADV'.
+Generating RTLIL representation for module `\GTM_DUAL'.
+Generating RTLIL representation for module `\IBUFDS_GTM'.
+Generating RTLIL representation for module `\OBUFDS_GTM'.
+Generating RTLIL representation for module `\OBUFDS_GTM_ADV'.
+Generating RTLIL representation for module `\HSDAC'.
+Generating RTLIL representation for module `\HSADC'.
+Generating RTLIL representation for module `\RFDAC'.
+Generating RTLIL representation for module `\RFADC'.
+Generating RTLIL representation for module `\PCIE_A1'.
+Generating RTLIL representation for module `\PCIE_EP'.
+Generating RTLIL representation for module `\PCIE_2_0'.
+Generating RTLIL representation for module `\PCIE_2_1'.
+Generating RTLIL representation for module `\PCIE_3_0'.
+Generating RTLIL representation for module `\PCIE_3_1'.
+Generating RTLIL representation for module `\PCIE40E4'.
+Generating RTLIL representation for module `\PCIE4CE4'.
+Generating RTLIL representation for module `\EMAC'.
+Generating RTLIL representation for module `\TEMAC'.
+Generating RTLIL representation for module `\TEMAC_SINGLE'.
+Generating RTLIL representation for module `\CMAC'.
+Generating RTLIL representation for module `\CMACE4'.
+Generating RTLIL representation for module `\MCB'.
+Generating RTLIL representation for module `\HBM_REF_CLK'.
+Generating RTLIL representation for module `\HBM_SNGLBLI_INTF_APB'.
+Generating RTLIL representation for module `\HBM_SNGLBLI_INTF_AXI'.
+Generating RTLIL representation for module `\HBM_ONE_STACK_INTF'.
+Generating RTLIL representation for module `\HBM_TWO_STACK_INTF'.
+Generating RTLIL representation for module `\PPC405_ADV'.
+Generating RTLIL representation for module `\PPC440'.
+Generating RTLIL representation for module `\PS7'.
+Generating RTLIL representation for module `\PS8'.
+Generating RTLIL representation for module `\ILKN'.
+Generating RTLIL representation for module `\ILKNE4'.
+Generating RTLIL representation for module `\VCU'.
+Generating RTLIL representation for module `\FE'.
+Successfully finished Verilog frontend.
+
+11.3. Executing HIERARCHY pass (managing design hierarchy).
+
+11.3.1. Analyzing design hierarchy..
+Top module:  \sequential_matmul
+Used module:     \mac_unit
+Parameter \DATA_W = 8
+Parameter \ACC_W = 32
+
+11.3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\mac_unit'.
+Parameter \DATA_W = 8
+Parameter \ACC_W = 32
+Generating RTLIL representation for module `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit'.
+Reprocessing module sequential_matmul because instantiated module $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit has become available.
+Generating RTLIL representation for module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+
+11.3.3. Analyzing design hierarchy..
+Top module:  $paramod\sequential_matmul\N=s32'00000000000000000000000000000100
+Used module:     \mac_unit
+Parameter \DATA_W = 8
+Parameter \ACC_W = 32
+Found cached RTLIL representation for module `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit'.
+
+11.3.4. Analyzing design hierarchy..
+Top module:  $paramod\sequential_matmul\N=s32'00000000000000000000000000000100
+Used module:     $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit
+
+11.3.5. Analyzing design hierarchy..
+Top module:  $paramod\sequential_matmul\N=s32'00000000000000000000000000000100
+Used module:     $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit
+Removing unused module `\systolic_top'.
+Removing unused module `\systolic_controller'.
+Removing unused module `\output_buffer'.
+Removing unused module `\systolic_array'.
+Removing unused module `\skew_buffer'.
+Removing unused module `\input_buffer'.
+Removing unused module `\pe'.
+Removing unused module `\mac_unit'.
+Removed 8 unused modules.
+
+11.4. Executing PROC pass (convert processes to netlists).
+
+11.4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $rtl/mac_unit.v:44$proc$1275 in module $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.
+Removed 1 dead cases from process $rtl/sequential_matmul.v:62$proc$1310 in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Marked 5 switch rules as full_case in process $rtl/sequential_matmul.v:62$proc$1310 in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Marked 2 switch rules as full_case in process $rtl/sequential_matmul.v:38$proc$1283 in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Removed a total of 1 dead cases.
+
+11.4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 11 assignments to connections.
+
+11.4.4. Executing PROC_INIT pass (extract init attributes).
+
+11.4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+11.4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.$rtl/mac_unit.v:44$proc$1275'.
+     1/1: $0\acc[31:0]
+Creating decoders for process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+     1/13: $2$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1320
+     2/13: $2$memwr$\C$rtl/sequential_matmul.v:77$1282_DATA[31:0]$1319
+     3/13: $2$memwr$\C$rtl/sequential_matmul.v:77$1282_ADDR[3:0]$1318
+     4/13: $0\done[0:0]
+     5/13: $1$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1316
+     6/13: $1$memwr$\C$rtl/sequential_matmul.v:77$1282_DATA[31:0]$1315
+     7/13: $1$memwr$\C$rtl/sequential_matmul.v:77$1282_ADDR[3:0]$1314
+     8/13: $0\j[1:0]
+     9/13: $0\state[1:0]
+    10/13: $0\cycle_count[15:0]
+    11/13: $0\busy[0:0]
+    12/13: $0\k[1:0]
+    13/13: $0\i[1:0]
+Creating decoders for process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:57$proc$1305'.
+Creating decoders for process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+     1/12: $2$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1301
+     2/12: $2$memwr$\A$rtl/sequential_matmul.v:40$1280_DATA[7:0]$1300
+     3/12: $2$memwr$\A$rtl/sequential_matmul.v:40$1280_ADDR[3:0]$1299
+     4/12: $2$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1304
+     5/12: $2$memwr$\B$rtl/sequential_matmul.v:41$1281_DATA[7:0]$1303
+     6/12: $2$memwr$\B$rtl/sequential_matmul.v:41$1281_ADDR[3:0]$1302
+     7/12: $1$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1297
+     8/12: $1$memwr$\B$rtl/sequential_matmul.v:41$1281_DATA[7:0]$1296
+     9/12: $1$memwr$\B$rtl/sequential_matmul.v:41$1281_ADDR[3:0]$1295
+    10/12: $1$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1294
+    11/12: $1$memwr$\A$rtl/sequential_matmul.v:40$1280_DATA[7:0]$1293
+    12/12: $1$memwr$\A$rtl/sequential_matmul.v:40$1280_ADDR[3:0]$1292
+
+11.4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\mac_clear' from process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:57$proc$1305'.
+No latch inferred for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\mac_en' from process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:57$proc$1305'.
+
+11.4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.\acc' using process `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.$rtl/mac_unit.v:44$proc$1275'.
+  created $dff cell `$procdff$1502' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\i' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1503' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\k' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1504' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\busy' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1505' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\done' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1506' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\cycle_count' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1507' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\state' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1508' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.\j' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1509' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\C$rtl/sequential_matmul.v:77$1282_ADDR' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1510' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\C$rtl/sequential_matmul.v:77$1282_DATA' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1511' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\C$rtl/sequential_matmul.v:77$1282_EN' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+  created $dff cell `$procdff$1512' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\A$rtl/sequential_matmul.v:40$1280_ADDR' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+  created $dff cell `$procdff$1513' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\A$rtl/sequential_matmul.v:40$1280_DATA' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+  created $dff cell `$procdff$1514' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\A$rtl/sequential_matmul.v:40$1280_EN' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+  created $dff cell `$procdff$1515' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\B$rtl/sequential_matmul.v:41$1281_ADDR' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+  created $dff cell `$procdff$1516' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\B$rtl/sequential_matmul.v:41$1281_DATA' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+  created $dff cell `$procdff$1517' with positive edge clock.
+Creating register for signal `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$memwr$\B$rtl/sequential_matmul.v:41$1281_EN' using process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+  created $dff cell `$procdff$1518' with positive edge clock.
+
+11.4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.$rtl/mac_unit.v:44$proc$1275'.
+Removing empty process `$paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.$rtl/mac_unit.v:44$proc$1275'.
+Found and cleaned up 7 empty switches in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+Removing empty process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:62$proc$1310'.
+Removing empty process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:57$proc$1305'.
+Found and cleaned up 2 empty switches in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+Removing empty process `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:38$proc$1283'.
+Cleaned up 11 empty switches.
+
+11.4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+<suppressed ~14 debug messages>
+
+11.5. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit...
+Checking module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100...
+Found and reported 0 problems.
+
+11.6. Executing FLATTEN pass (flatten design).
+Deleting now unused module $paramod$174639793641f67d9f356196e99aa2188f4235c1\mac_unit.
+<suppressed ~1 debug messages>
+
+11.7. Executing TRIBUF pass.
+
+11.8. Executing DEMINOUT pass (demote inout ports to input or output).
+
+11.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.10. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100...
+Found and reported 0 problems.
+
+11.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 10 unused cells and 102 unused wires.
+<suppressed ~11 debug messages>
+
+11.12. Executing OPT pass (performing simple optimizations).
+
+11.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 109 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 89 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+<suppressed ~60 debug messages>
+Removed a total of 20 cells.
+
+11.12.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$1482.
+    dead port 2/2 on $mux $procmux$1476.
+    dead port 2/2 on $mux $procmux$1470.
+    dead port 2/2 on $mux $procmux$1464.
+    dead port 2/2 on $mux $procmux$1458.
+    dead port 2/2 on $mux $procmux$1452.
+    dead port 1/2 on $mux $procmux$1353.
+    dead port 1/2 on $mux $procmux$1347.
+    dead port 1/2 on $mux $procmux$1341.
+Removed 9 multiplexer ports.
+<suppressed ~77 debug messages>
+
+11.12.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+    Consolidated identical input bits for $mux cell $procmux$1450:
+      Old ports: A=8'11111111, B=8'00000000, Y=$procmux$1450_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$1450_Y [0]
+      New connections: $procmux$1450_Y [7:1] = { $procmux$1450_Y [0] $procmux$1450_Y [0] $procmux$1450_Y [0] $procmux$1450_Y [0] $procmux$1450_Y [0] $procmux$1450_Y [0] $procmux$1450_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$1468:
+      Old ports: A=8'00000000, B=8'11111111, Y=$procmux$1468_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$1468_Y [0]
+      New connections: $procmux$1468_Y [7:1] = { $procmux$1468_Y [0] $procmux$1468_Y [0] $procmux$1468_Y [0] $procmux$1468_Y [0] $procmux$1468_Y [0] $procmux$1468_Y [0] $procmux$1468_Y [0] }
+    Consolidated identical input bits for $pmux cell $procmux$1335:
+      Old ports: A=32'x, B=128'00000000000000000000000000000000000000000000000000000000000000001111111111111111111111111111111100000000000000000000000000000000, Y=$procmux$1335_Y
+      New ports: A=1'x, B=4'0010, Y=$procmux$1335_Y [0]
+      New connections: $procmux$1335_Y [31:1] = { $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] $procmux$1335_Y [0] }
+    New ctrl vector for $pmux cell $procmux$1335: { $auto$opt_reduce.cc:137:opt_pmux$1524 $procmux$1441_CMP }
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+    Consolidated identical input bits for $mux cell $procmux$1361:
+      Old ports: A=$2$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1320, B=0, Y=$0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313
+      New ports: A=$procmux$1335_Y [0], B=1'0, Y=$0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0]
+      New connections: $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [31:1] = { $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] $0$memwr$\C$rtl/sequential_matmul.v:77$1282_EN[31:0]$1313 [0] }
+    Consolidated identical input bits for $mux cell $procmux$1485:
+      Old ports: A=8'00000000, B=$2$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1304, Y=$0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289
+      New ports: A=1'0, B=$procmux$1468_Y [0], Y=$0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0]
+      New connections: $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [7:1] = { $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] $0$memwr$\B$rtl/sequential_matmul.v:41$1281_EN[7:0]$1289 [0] }
+    Consolidated identical input bits for $mux cell $procmux$1494:
+      Old ports: A=8'00000000, B=$2$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1301, Y=$0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286
+      New ports: A=1'0, B=$procmux$1450_Y [0], Y=$0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0]
+      New connections: $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [7:1] = { $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] $0$memwr$\A$rtl/sequential_matmul.v:40$1280_EN[7:0]$1286 [0] }
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 7 changes.
+
+11.12.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 81 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.12.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.12.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 29 unused wires.
+<suppressed ~1 debug messages>
+
+11.12.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.12.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.12.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~68 debug messages>
+
+11.12.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.12.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 81 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.12.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.12.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.12.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.12.16. Finished fast OPT passes. (There is nothing left to do.)
+
+11.13. Executing FSM pass (extract and optimize FSM).
+
+11.13.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.state.
+
+11.13.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\state' from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+  found $dff cell for state register: $procdff$1508
+  root of input selection tree: $0\state[1:0]
+  found reset state: 2'00 (guessed from mux tree)
+  found ctrl input: \rst
+  found ctrl input: $procmux$1336_CMP
+  found ctrl input: $procmux$1337_CMP
+  found ctrl input: \mac_en
+  found ctrl input: $procmux$1339_CMP
+  found state code: 2'00
+  found ctrl input: $procmux$1372_CMP
+  found state code: 2'01
+  found ctrl input: $procmux$1386_CMP
+  found state code: 2'11
+  found ctrl input: $procmux$1392_CMP
+  found state code: 2'10
+  found ctrl input: \start
+  found ctrl output: $procmux$1336_CMP
+  found ctrl output: \mac_en
+  found ctrl output: $procmux$1337_CMP
+  found ctrl output: $procmux$1339_CMP
+  ctrl inputs: { $procmux$1392_CMP $procmux$1386_CMP $procmux$1372_CMP \start \rst }
+  ctrl outputs: { $procmux$1339_CMP $procmux$1337_CMP $procmux$1336_CMP $0\state[1:0] \mac_en }
+  transition:       2'00 5'---00 ->       2'00 6'100000
+  transition:       2'00 5'---10 ->       2'01 6'100010
+  transition:       2'00 5'----1 ->       2'00 6'100000
+  transition:       2'10 5'--0-0 ->       2'01 6'010010
+  transition:       2'10 5'-01-0 ->       2'01 6'010010
+  transition:       2'10 5'-11-0 ->       2'11 6'010110
+  transition:       2'10 5'----1 ->       2'00 6'010000
+  transition:       2'01 5'0---0 ->       2'01 6'000011
+  transition:       2'01 5'1---0 ->       2'10 6'000101
+  transition:       2'01 5'----1 ->       2'00 6'000001
+  transition:       2'11 5'----0 ->       2'00 6'001000
+  transition:       2'11 5'----1 ->       2'00 6'001000
+
+11.13.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\state$1525' from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+  Merging pattern 5'----0 and 5'----1 from group (3 0 6'001000).
+  Merging pattern 5'----1 and 5'----0 from group (3 0 6'001000).
+
+11.13.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 11 unused cells and 11 unused wires.
+<suppressed ~12 debug messages>
+
+11.13.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\state$1525' from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+  Removing unused output signal $0\state[1:0] [0].
+  Removing unused output signal $0\state[1:0] [1].
+
+11.13.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\state$1525' from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+11.13.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\state$1525' from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+-------------------------------------
+
+  Information on FSM $fsm$\state$1525 (\state):
+
+  Number of input signals:    5
+  Number of output signals:   4
+  Number of state bits:       4
+
+  Input signals:
+    0: \rst
+    1: \start
+    2: $procmux$1372_CMP
+    3: $procmux$1386_CMP
+    4: $procmux$1392_CMP
+
+  Output signals:
+    0: \mac_en
+    1: $procmux$1336_CMP
+    2: $procmux$1337_CMP
+    3: $procmux$1339_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 5'---00   ->     0 4'1000
+      1:     0 5'----1   ->     0 4'1000
+      2:     0 5'---10   ->     2 4'1000
+      3:     1 5'----1   ->     0 4'0100
+      4:     1 5'--0-0   ->     2 4'0100
+      5:     1 5'-01-0   ->     2 4'0100
+      6:     1 5'-11-0   ->     3 4'0100
+      7:     2 5'----1   ->     0 4'0001
+      8:     2 5'1---0   ->     1 4'0001
+      9:     2 5'0---0   ->     2 4'0001
+     10:     3 5'-----   ->     0 4'0010
+
+-------------------------------------
+
+11.13.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\state$1525' from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+
+11.14. Executing OPT pass (performing simple optimizations).
+
+11.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+<suppressed ~4 debug messages>
+
+11.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 87 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~61 debug messages>
+
+11.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 87 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$1503 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1440_Y, Q = \i, rval = 2'00).
+Adding EN signal on $auto$ff.cc:337:slice$1567 ($sdff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1440_Y, Q = \i).
+Adding SRST signal on $procdff$1504 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1421_Y, Q = \k, rval = 2'00).
+Adding EN signal on $auto$ff.cc:337:slice$1579 ($sdff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1421_Y, Q = \k).
+Adding SRST signal on $procdff$1505 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1412_Y, Q = \busy, rval = 1'0).
+Adding EN signal on $auto$ff.cc:337:slice$1589 ($sdff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1412_Y, Q = \busy).
+Adding SRST signal on $procdff$1506 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1355_Y, Q = \done, rval = 1'0).
+Adding SRST signal on $procdff$1507 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1407_Y, Q = \cycle_count, rval = 16'0000000000000000).
+Adding SRST signal on $procdff$1509 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1373_Y, Q = \j, rval = 2'00).
+Adding EN signal on $auto$ff.cc:337:slice$1599 ($sdff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $procmux$1373_Y, Q = \j).
+Adding SRST signal on $flatten\u_mac.$procdff$1502 ($dff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $flatten\u_mac.$procmux$1330_Y, Q = \u_mac.acc, rval = 0).
+Adding EN signal on $auto$ff.cc:337:slice$1607 ($sdff) from module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 (D = $flatten\u_mac.$rtl/mac_unit.v:48$add$1277_Y, Q = \u_mac.acc).
+
+11.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 8 unused cells and 15 unused wires.
+<suppressed ~9 debug messages>
+
+11.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+<suppressed ~4 debug messages>
+
+11.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~52 debug messages>
+
+11.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 94 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 88 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+<suppressed ~18 debug messages>
+Removed a total of 6 cells.
+
+11.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+11.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.14.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.14.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~54 debug messages>
+
+11.14.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.14.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 88 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.14.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.14.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.14.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.14.23. Finished fast OPT passes. (There is nothing left to do.)
+
+11.15. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$auto$fsm_map.cc:77:implement_pattern_cache$1555 ($eq).
+Removed top 1 bits (of 2) from port B of cell $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$auto$simple.cc:214:make_patterns_logic$1574 ($ne).
+Removed top 15 bits (of 16) from port B of cell $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$rtl/sequential_matmul.v:68$add$1317 ($add).
+
+11.16. Executing PEEPOPT pass (run peephole optimizers).
+
+11.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.18. Executing PMUX2SHIFTX pass.
+
+11.19. Executing SORT pass.
+
+11.20. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\A'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no output FF found.
+Checking read port `\B'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no output FF found.
+Checking read port `\C'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no output FF found.
+Checking read port address `\A'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no address FF found.
+Checking read port address `\B'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no address FF found.
+Checking read port address `\C'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no address FF found.
+
+11.21. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100:
+  creating $macc model for $flatten\u_mac.$rtl/mac_unit.v:24$mul$1274 ($mul).
+  creating $macc model for $flatten\u_mac.$rtl/mac_unit.v:48$add$1277 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:68$add$1317 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:75$add$1322 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:82$add$1325 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:84$add$1326 ($add).
+  created 0 $alu and 0 $macc cells.
+
+11.22. Executing MACCMAP pass (map $macc cells).
+
+11.23. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.24. Executing TECHMAP pass (map to technology primitives).
+
+11.24.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/mul2dsp.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/mul2dsp.v' to AST representation.
+Generating RTLIL representation for module `\_80_mul'.
+Generating RTLIL representation for module `\_90_soft_mul'.
+Successfully finished Verilog frontend.
+
+11.24.2. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/xc7_dsp_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/xc7_dsp_map.v' to AST representation.
+Generating RTLIL representation for module `$__MUL25X18'.
+Successfully finished Verilog frontend.
+
+11.24.3. Continuing TECHMAP pass.
+Using template $paramod$cc733e0dbb038034434917c1e0de96998ec4103f\_80_mul for cells of type $mul.
+Using template $paramod$ddeb8d93e252ea93f59573db930b85d56915e9c4$__MUL25X18 for cells of type $__MUL25X18.
+No more expansions possible.
+<suppressed ~89 debug messages>
+
+11.25. Executing OPT_EXPR pass (perform const folding).
+
+11.26. Executing WREDUCE pass (reducing word size of cells).
+
+11.27. Executing XILINX_DSP pass (pack resources into DSPs).
+Analysing $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.$flatten\u_mac.$rtl/mac_unit.v:24$mul$1274 for Xilinx DSP packing.
+  postadder $flatten\u_mac.$rtl/mac_unit.v:48$add$1277 ($add)
+  clock: \clk (posedge)
+ ffP:$auto$ff.cc:337:slice$1608
+
+<suppressed ~14 debug messages>
+
+11.28. Executing TECHMAP pass (map to technology primitives).
+
+11.28.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/cmp2lut.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/cmp2lut.v' to AST representation.
+Generating RTLIL representation for module `\_90_lut_cmp_'.
+Successfully finished Verilog frontend.
+
+11.28.2. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/cmp2lcu.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/cmp2lcu.v' to AST representation.
+Generating RTLIL representation for module `\_80_lcu_cmp_'.
+Generating RTLIL representation for module `$__CMP2LCU'.
+Successfully finished Verilog frontend.
+
+11.28.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~7 debug messages>
+
+11.29. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100:
+  creating $macc model for $rtl/sequential_matmul.v:68$add$1317 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:75$add$1322 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:82$add$1325 ($add).
+  creating $macc model for $rtl/sequential_matmul.v:84$add$1326 ($add).
+  creating $alu model for $macc $rtl/sequential_matmul.v:84$add$1326.
+  creating $alu model for $macc $rtl/sequential_matmul.v:82$add$1325.
+  creating $alu model for $macc $rtl/sequential_matmul.v:75$add$1322.
+  creating $alu model for $macc $rtl/sequential_matmul.v:68$add$1317.
+  creating $alu cell for $rtl/sequential_matmul.v:68$add$1317: $auto$alumacc.cc:578:replace_alu$1619
+  creating $alu cell for $rtl/sequential_matmul.v:75$add$1322: $auto$alumacc.cc:578:replace_alu$1622
+  creating $alu cell for $rtl/sequential_matmul.v:82$add$1325: $auto$alumacc.cc:578:replace_alu$1625
+  creating $alu cell for $rtl/sequential_matmul.v:84$add$1326: $auto$alumacc.cc:578:replace_alu$1628
+  created 4 $alu and 0 $macc cells.
+
+11.30. Executing SHARE pass (SAT-based resource sharing).
+
+11.31. Executing OPT pass (performing simple optimizations).
+
+11.31.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.31.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 87 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.31.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~54 debug messages>
+
+11.31.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.31.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 87 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.31.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.31.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 1 unused cells and 14 unused wires.
+<suppressed ~4 debug messages>
+
+11.31.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.31.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.31.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~54 debug messages>
+
+11.31.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.31.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 86 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.31.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.31.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.31.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.31.16. Finished fast OPT passes. (There is nothing left to do.)
+
+11.32. Executing MEMORY pass.
+
+11.32.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+11.32.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+11.32.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+  Analyzing $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.A write port 0.
+  Analyzing $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.B write port 0.
+  Analyzing $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.C write port 0.
+
+11.32.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+11.32.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+Checking read port `\A'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no output FF found.
+Checking read port `\B'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no output FF found.
+Checking read port `\C'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no output FF found.
+Checking read port address `\A'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no address FF found.
+Checking read port address `\B'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no address FF found.
+Checking read port address `\C'[0] in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100':
+    no address FF found.
+
+11.32.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.32.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+11.32.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+11.32.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.32.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.33. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.34. Executing MEMORY_LIBMAP pass (mapping memories to cells).
+mapping memory $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.A via $__XILINX_LUTRAM_SDP_
+mapping memory $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.B via $__XILINX_LUTRAM_SDP_
+mapping memory $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.C via $__XILINX_LUTRAM_SDP_
+<suppressed ~558 debug messages>
+
+11.35. Executing TECHMAP pass (map to technology primitives).
+
+11.35.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/lutrams_xc5v_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/lutrams_xc5v_map.v' to AST representation.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_SP_'.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_DP_'.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_QP_'.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_OP_'.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_SDP_'.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_64X8SW_'.
+Generating RTLIL representation for module `$__XILINX_LUTRAM_32X16DR8_'.
+Successfully finished Verilog frontend.
+
+11.35.2. Continuing TECHMAP pass.
+Using template $paramod$31933bc0586e304f9d4048cafdcf94ebf308e40b$__XILINX_LUTRAM_SDP_ for cells of type $__XILINX_LUTRAM_SDP_.
+Using template $paramod$b46e790e1a546c1d0fce1965900bc12ee9561e85$__XILINX_LUTRAM_SDP_ for cells of type $__XILINX_LUTRAM_SDP_.
+No more expansions possible.
+<suppressed ~49 debug messages>
+
+11.36. Executing TECHMAP pass (map to technology primitives).
+
+11.36.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/brams_xc6v_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/brams_xc6v_map.v' to AST representation.
+Generating RTLIL representation for module `$__XILINX_BLOCKRAM_TDP_'.
+Generating RTLIL representation for module `$__XILINX_BLOCKRAM_SDP_'.
+Successfully finished Verilog frontend.
+
+11.36.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~4 debug messages>
+
+11.37. Executing OPT pass (performing simple optimizations).
+
+11.37.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+<suppressed ~27 debug messages>
+
+11.37.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 70 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.37.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.37.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 1 unused cells and 88 unused wires.
+<suppressed ~2 debug messages>
+
+11.37.5. Finished fast OPT passes.
+
+11.38. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+11.39. Executing OPT pass (performing simple optimizations).
+
+11.39.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+<suppressed ~1 debug messages>
+
+11.39.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 69 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.39.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+11.39.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+    New ctrl vector for $pmux cell $procmux$1421: \state [2]
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 1 changes.
+
+11.39.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 69 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.39.6. Executing OPT_SHARE pass.
+
+11.39.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.39.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.39.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.39.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.39.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+11.39.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.39.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 69 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.39.14. Executing OPT_SHARE pass.
+
+11.39.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.39.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.39.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.39.18. Finished fast OPT passes. (There is nothing left to do.)
+
+11.40. Executing XILINX_SRL pass (Xilinx shift register extraction).
+
+11.41. Executing TECHMAP pass (map to technology primitives).
+
+11.41.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+11.41.2. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/arith_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/arith_map.v' to AST representation.
+Generating RTLIL representation for module `\_80_xilinx_lcu'.
+Generating RTLIL representation for module `\_80_xilinx_alu'.
+Successfully finished Verilog frontend.
+
+11.41.3. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $sdff.
+Using template $paramod$817919053e360e32f1a00d067c5411f16a07f712\_80_xilinx_alu for cells of type $alu.
+Using template $paramod$175e67c02b86e96b1288b9dc100122520d7240d8\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000010 for cells of type $lcu.
+Using extmapper simplemap for cells of type $or.
+No more expansions possible.
+<suppressed ~348 debug messages>
+
+11.42. Executing OPT pass (performing simple optimizations).
+
+11.42.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+<suppressed ~115 debug messages>
+
+11.42.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 201 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 186 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+<suppressed ~45 debug messages>
+Removed a total of 15 cells.
+
+11.42.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.42.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 18 unused cells and 193 unused wires.
+<suppressed ~19 debug messages>
+
+11.42.5. Finished fast OPT passes.
+
+11.43. Executing IOPADMAP pass (mapping inputs/outputs to IO-PAD cells).
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.busy using OBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.clk using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.cycle_count using OBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.done using OBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.rd_col using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.rd_data using OBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.rd_row using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.rst using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.start using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.wr_col using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.wr_data using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.wr_en using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.wr_row using IBUF.
+Mapping port $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.wr_sel using IBUF.
+
+11.44. Executing TECHMAP pass (map to technology primitives).
+
+11.44.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+11.44.2. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_map.v' to AST representation.
+Generating RTLIL representation for module `$__SHREG_'.
+Generating RTLIL representation for module `$__XILINX_SHREG_'.
+Generating RTLIL representation for module `$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+11.44.3. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~80 debug messages>
+Removed 0 unused cells and 2 unused wires.
+
+11.45. Executing DFFLEGALIZE pass (convert FFs and LATCHes to types supported by the target).
+
+11.46. Executing TECHMAP pass (map to technology primitives).
+
+11.46.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/ff_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/ff_map.v' to AST representation.
+Generating RTLIL representation for module `$_DFFE_NP0P_'.
+Generating RTLIL representation for module `$_DFFE_PP0P_'.
+Generating RTLIL representation for module `$_DFFE_NP1P_'.
+Generating RTLIL representation for module `$_DFFE_PP1P_'.
+Generating RTLIL representation for module `$_DFFSRE_NPPP_'.
+Generating RTLIL representation for module `$_DFFSRE_PPPP_'.
+Generating RTLIL representation for module `$_SDFFE_NP0P_'.
+Generating RTLIL representation for module `$_SDFFE_PP0P_'.
+Generating RTLIL representation for module `$_SDFFE_NP1P_'.
+Generating RTLIL representation for module `$_SDFFE_PP1P_'.
+Generating RTLIL representation for module `$_DLATCH_NP0_'.
+Generating RTLIL representation for module `$_DLATCH_PP0_'.
+Generating RTLIL representation for module `$_DLATCH_NP1_'.
+Generating RTLIL representation for module `$_DLATCH_PP1_'.
+Generating RTLIL representation for module `$_DLATCH_NPP_'.
+Generating RTLIL representation for module `$_DLATCH_PPP_'.
+Successfully finished Verilog frontend.
+
+11.46.2. Continuing TECHMAP pass.
+Using template $paramod$_SDFFE_PP0P_\_TECHMAP_WIREINIT_Q_=1'x for cells of type $_SDFFE_PP0P_.
+No more expansions possible.
+<suppressed ~55 debug messages>
+
+11.47. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.48. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/abc9_model.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+11.49. Executing ABC9 pass.
+
+11.49.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+11.49.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+11.49.3. Executing PROC pass (convert processes to netlists).
+
+11.49.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.49.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207 in module $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.
+Removed a total of 0 dead cases.
+
+11.49.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 16 assignments to connections.
+
+11.49.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1806$proc$2305'.
+  Set init value: \mem_d = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1805$proc$2304'.
+  Set init value: \mem_c = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1804$proc$2303'.
+  Set init value: \mem_b = 64'0000000000000000000000000000000000000000000000000000000000000000
+Found init rule in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1803$proc$2302'.
+  Set init value: \mem_a = 64'0000000000000000000000000000000000000000000000000000000000000000
+
+11.49.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.49.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~1 debug messages>
+
+11.49.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1806$proc$2305'.
+Creating decoders for process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1805$proc$2304'.
+Creating decoders for process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1804$proc$2303'.
+Creating decoders for process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1803$proc$2302'.
+Creating decoders for process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+     1/8: $1$lookahead\mem_d$2206[63:0]$2223
+     2/8: $1$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1817$2189[31:0]$2219
+     3/8: $1$lookahead\mem_c$2205[63:0]$2222
+     4/8: $1$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1816$2188[31:0]$2218
+     5/8: $1$lookahead\mem_b$2204[63:0]$2221
+     6/8: $1$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1815$2187[31:0]$2217
+     7/8: $1$lookahead\mem_a$2203[63:0]$2220
+     8/8: $1$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1814$2186[31:0]$2216
+
+11.49.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+11.49.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.\mem_a' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2330' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.\mem_b' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2331' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.\mem_c' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2332' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.\mem_d' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2333' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1814$2186' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2334' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1815$2187' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2335' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1816$2188' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2336' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$bitselwrite$pos$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1817$2189' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2337' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$lookahead\mem_a$2203' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2338' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$lookahead\mem_b$2204' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2339' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$lookahead\mem_c$2205' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2340' with positive edge clock.
+Creating register for signal `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$lookahead\mem_d$2206' using process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+  created $dff cell `$procdff$2341' with positive edge clock.
+
+11.49.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.49.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1806$proc$2305'.
+Removing empty process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1805$proc$2304'.
+Removing empty process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1804$proc$2303'.
+Removing empty process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1803$proc$2302'.
+Found and cleaned up 1 empty switch in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+Removing empty process `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.$/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_sim.v:1812$proc$2207'.
+Cleaned up 1 empty switch.
+
+11.49.4. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Found 0 SCCs.
+
+11.49.5. Executing ABC9_OPS pass (helper functions for ABC9).
+
+11.49.6. Executing TECHMAP pass (map to technology primitives).
+
+11.49.6.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+11.49.6.2. Continuing TECHMAP pass.
+No more expansions possible.
+<suppressed ~509 debug messages>
+
+11.49.7. Executing OPT pass (performing simple optimizations).
+
+11.49.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.
+
+11.49.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M'.
+Computing hashes of 2 cells of `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M'.
+Finding duplicate cells in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M'.
+Removed a total of 0 cells.
+
+11.49.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.49.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.
+Performed a total of 0 changes.
+
+11.49.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M'.
+Computing hashes of 2 cells of `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M'.
+Finding duplicate cells in `$paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M'.
+Removed a total of 0 cells.
+
+11.49.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.49.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M..
+
+11.49.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.
+
+11.49.7.9. Finished fast OPT passes. (There is nothing left to do.)
+
+11.49.8. Executing TECHMAP pass (map to technology primitives).
+
+11.49.8.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_map.v' to AST representation.
+Lexer warning: The SystemVerilog keyword `bit' (at /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_map.v:35) is not recognized unless read_verilog is called with -sv!
+Generating RTLIL representation for module `$__ABC9_BARRIER_MAP'.
+Successfully finished Verilog frontend.
+
+11.49.8.2. Continuing TECHMAP pass.
+Using template $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M for cells of type $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.
+No more expansions possible.
+<suppressed ~14 debug messages>
+
+11.49.9. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_model.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_model.v' to AST representation.
+Generating RTLIL representation for module `$__ABC9_DELAY'.
+Generating RTLIL representation for module `$__ABC9_BARRIER'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__DFF_N__$abc9_flop'.
+Generating RTLIL representation for module `$__DFF_P__$abc9_flop'.
+Successfully finished Verilog frontend.
+
+11.49.10. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~146 debug messages>
+
+11.49.11. Executing ABC9_OPS pass (helper functions for ABC9).
+
+11.49.12. Executing ABC9_OPS pass (helper functions for ABC9).
+<suppressed ~2 debug messages>
+
+11.49.13. Executing TECHMAP pass (map to technology primitives).
+
+11.49.13.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+11.49.13.2. Continuing TECHMAP pass.
+Using template CARRY4 for cells of type CARRY4.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $mux.
+No more expansions possible.
+<suppressed ~526 debug messages>
+
+11.49.14. Executing OPT pass (performing simple optimizations).
+
+11.49.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.49.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 62 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 61 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+11.49.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.49.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.49.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 61 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.49.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.49.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~3 debug messages>
+
+11.49.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.49.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+11.49.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.49.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+Performed a total of 0 changes.
+
+11.49.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Computing hashes of 61 cells of `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Finding duplicate cells in `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'.
+Removed a total of 0 cells.
+
+11.49.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.49.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100..
+
+11.49.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.49.14.16. Finished fast OPT passes. (There is nothing left to do.)
+
+11.49.15. Executing AIGMAP pass (map logic to AIG).
+Module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100: replaced 84 cells with 516 new cells, skipped 309 cells.
+  replaced 3 cell types:
+      57 $_MUX_
+      24 $_OR_
+       3 $_XOR_
+  not replaced 14 cell types:
+      16 $_AND_
+      24 $_NOT_
+       1 $scopeinfo
+      28 FDRE
+      21 IBUF
+      50 OBUF
+       4 CARRY4
+       1 $paramod$d44477e6c3a57383e3948c7051a9f0d384980593\DSP48E1
+      10 $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M
+      10 $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M_$abc9_byp
+      30 $paramod$__ABC9_DELAY\DELAY=32'00000000000000000000101010110011
+      18 $paramod$__ABC9_DELAY\DELAY=32'00000000000000000000101000110000
+      48 $paramod$__ABC9_DELAY\DELAY=32'00000000000000000000010011011100
+      48 $paramod$__ABC9_DELAY\DELAY=32'00000000000000000000010000000001
+
+11.49.15.1. Executing ABC9_OPS pass (helper functions for ABC9).
+
+11.49.15.2. Executing ABC9_OPS pass (helper functions for ABC9).
+
+11.49.15.3. Executing XAIGER2 backend.
+<suppressed ~278 debug messages>
+Extracted 675 AND gates and 0 wires from module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100' to a netlist network with 504 inputs and 1047 outputs.
+
+11.49.15.4. Executing ABC9_EXE pass (technology mapping using ABC9).
+
+11.49.15.5. Executing ABC9.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_lut <abc-temp-dir>/input.lut 
+ABC: + read_box <abc-temp-dir>/input.box 
+ABC: + &read <abc-temp-dir>/input.xaig 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =    248/    583  and =     167  lev =    6 (0.14)  mem = 0.03 MB  box = 158  bb = 154
+ABC: + &scorr 
+ABC: Warning: The network is combinational.
+ABC: + &sweep 
+ABC: + &dc2 
+ABC: + &dch -f -r 
+ABC: + &ps 
+ABC: <abc-temp-dir>/input : i/o =    248/    583  and =     186  lev =    5 (0.11)  mem = 0.03 MB  ch =   25  box = 158  bb = 154
+ABC: cst =       0  cls =     25  lit =      25  unused =     640  proof =     0
+ABC: + &if -W 300 -v 
+ABC: K = 8. Memory (bytes): Truth =    0. Cut =   80. Obj =  160. Set =  816. CutMin = no
+ABC: Node =     186.  Ch =    25.  Total mem =    0.29 MB. Peak cut mem =    0.01 MB.
+ABC: P:  Del = 3381.00.  Ar =     132.0.  Edge =      159.  Cut =     1071.  T =     0.00 sec
+ABC: P:  Del = 3381.00.  Ar =     114.0.  Edge =      153.  Cut =     1071.  T =     0.00 sec
+ABC: P:  Del = 3381.00.  Ar =     107.0.  Edge =      148.  Cut =     1084.  T =     0.00 sec
+ABC: F:  Del = 3381.00.  Ar =     108.0.  Edge =      149.  Cut =     1073.  T =     0.00 sec
+ABC: A:  Del = 3381.00.  Ar =     107.0.  Edge =      146.  Cut =     1073.  T =     0.00 sec
+ABC: A:  Del = 3381.00.  Ar =     107.0.  Edge =      146.  Cut =     1073.  T =     0.00 sec
+ABC: Total time =     0.00 sec
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &mfs 
+ABC: Currently "&mfs" cannot process the network containing white-boxes with more than 15 inputs.
+ABC: Error: Abc_FrameUpdateGia(): Transformation has failed.
+ABC: + &ps -l 
+ABC: <abc-temp-dir>/input : i/o =    248/    583  and =     137  lev =    5 (0.11)  mem = 0.03 MB  box = 158  bb = 154
+ABC: Mapping (K=6)  :  lut =     37  edge =     146  lev =    2 (0.05)  levB =    5  mem = 0.01 MB
+ABC: LUT = 37 : 2=8 21.6 %  3=6 16.2 %  4=5 13.5 %  5=16 43.2 %  6=2 5.4 %  Ave = 3.95
+ABC: + &write -n <abc-temp-dir>/output.aig 
+ABC: + &verify 
+ABC: Networks are equivalent.  Time =     0.01 sec
+ABC: + time 
+ABC: elapse: 0.02 seconds, total: 0.02 seconds
+
+11.49.15.6. Executing AIGER frontend.
+<suppressed ~10 debug messages>
+Removed 200 unused cells and 1380 unused wires.
+
+11.49.15.7. Executing ABC_OPS_REINTEGRATE pass (reintegrate ABC mapped design into module).
+ABC RESULTS:              $lut cells:       39
+ABC RESULTS:           \CARRY4 cells:        4
+ABC RESULTS:   $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M_$abc9_byp cells:       10
+ABC RESULTS:           input signals:      144
+ABC RESULTS:          output signals:        4
+<suppressed ~831 debug messages>
+Removing temp directory.
+
+11.49.16. Executing TECHMAP pass (map to technology primitives).
+
+11.49.16.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_unmap.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/abc9_unmap.v' to AST representation.
+Generating RTLIL representation for module `$__DFF_x__$abc9_flop'.
+Generating RTLIL representation for module `$__ABC9_SCC_BREAKER'.
+Generating RTLIL representation for module `$__ABC9_BARRIER'.
+Successfully finished Verilog frontend.
+
+11.49.16.2. Continuing TECHMAP pass.
+Using template $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M for cells of type $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M.
+Using template $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M_$abc9_byp for cells of type $paramod$f9a6fe86fd29419df8af48e7cfa158236be800e4\RAM32M_$abc9_byp.
+Using template $paramod$d44477e6c3a57383e3948c7051a9f0d384980593\DSP48E1 for cells of type $paramod$d44477e6c3a57383e3948c7051a9f0d384980593\DSP48E1.
+No more expansions possible.
+<suppressed ~30 debug messages>
+Removed 2 unused cells and 1480 unused wires.
+
+11.50. Executing XILINX_SRL pass (Xilinx shift register extraction).
+
+11.51. Executing TECHMAP pass (map to technology primitives).
+
+11.51.1. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/lut_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/lut_map.v' to AST representation.
+Generating RTLIL representation for module `$lut'.
+Successfully finished Verilog frontend.
+
+11.51.2. Executing Verilog-2005 frontend: /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_map.v
+Parsing Verilog input from `/opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/xilinx/cells_map.v' to AST representation.
+Generating RTLIL representation for module `$__SHREG_'.
+Generating RTLIL representation for module `$__XILINX_SHREG_'.
+Generating RTLIL representation for module `$__XILINX_MUXF78'.
+Successfully finished Verilog frontend.
+
+11.51.3. Continuing TECHMAP pass.
+Using template $paramod$a3112379cfd79859ceeae1b9c7bb3afe8af8622e$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0010 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'1000 for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000010\LUT=4'0100 for cells of type $lut.
+Using template $paramod$590bbae288d702591db2eb27047d638738d3426a$lut for cells of type $lut.
+Using template $paramod$571404c0889eaf57f492cb5e37f8acb5df5852f9$lut for cells of type $lut.
+Using template $paramod$6d6beead1425af15cf78b27fd9b11b41b5d4bce8$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'00101000 for cells of type $lut.
+Using template $paramod$68a25441a4bae0d0c849cc98a765b52d3c284acb$lut for cells of type $lut.
+Using template $paramod$79364b9974cfc81fb54c164d10340bf9c7bccd7f$lut for cells of type $lut.
+Using template $paramod$b8359bc46c44a8cddd2e72f4af1a01171535eb3f$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'10101100 for cells of type $lut.
+Using template $paramod$10f02774842ec9f77d655d6545c5e319305008da$lut for cells of type $lut.
+Using template $paramod$00c1e5e27ab10ea0f9bff63df6b3c95df9b2c979$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000001\LUT=2'01 for cells of type $lut.
+Using template $paramod$a79a1f8d02ecabbafa660702fcc91022d47f85ff$lut for cells of type $lut.
+Using template $paramod$lut\WIDTH=32'00000000000000000000000000000011\LUT=8'11111110 for cells of type $lut.
+No more expansions possible.
+<suppressed ~232 debug messages>
+
+11.52. Executing XILINX_DFFOPT pass (optimize FF control signal usage).
+Optimizing FFs in $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1662/i (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1760/k (3 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1783/$abc$23662$aiger$o699 (1 -> 4)
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1661/i (2 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1805/j (2 -> 4)
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1759/k (2 -> 6)
+  Merging D + CE LUTs for $auto$ff.cc:337:slice$1806/j (3 -> 5)
+
+11.53. Executing OPT_LUT_INS pass (discard unused LUT inputs).
+Optimizing LUTs in $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.54. Executing CLKBUFMAP pass (inserting clock buffers).
+Inserting BUFG on $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.u_mac.clk[0].
+Removed 10 unused cells and 107 unused wires.
+
+11.55. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `$paramod\sequential_matmul\N=s32'00000000000000000000000000000100'. Setting top module to $paramod\sequential_matmul\N=s32'00000000000000000000000000000100.
+
+11.55.1. Analyzing design hierarchy..
+Top module:  $paramod\sequential_matmul\N=s32'00000000000000000000000000000100
+
+11.55.2. Analyzing design hierarchy..
+Top module:  $paramod\sequential_matmul\N=s32'00000000000000000000000000000100
+Removed 0 unused modules.
+
+11.56. Printing statistics.
+
+=== $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      190 wires
+      370 wire bits
+       22 public wires
+      116 public wire bits
+       14 ports
+       71 port bits
+      110 cells
+        1   $scopeinfo
+        1   BUFG
+        1   DSP48E1
+       21   IBUF
+        1   INV
+        5   LUT2
+        2   LUT3
+        7   LUT4
+       17   LUT5
+        4   LUT6
+       50   OBUF
+       42 submodules
+        4   CARRY4
+       28   FDRE
+       10   RAM32M
+
+   Estimated number of LCs:         30
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      110 $paramod\sequential_matmul\N=s32'00000000000000000000000000000100
+
+        +----------Count including submodules.
+        | 
+      190 wires
+      370 wire bits
+       22 public wires
+      116 public wire bits
+       14 ports
+       71 port bits
+        - memories
+        - memory bits
+        - processes
+      110 cells
+        1   $scopeinfo
+        1   BUFG
+        1   DSP48E1
+       21   IBUF
+        1   INV
+        5   LUT2
+        2   LUT3
+        7   LUT4
+       17   LUT5
+        4   LUT6
+       50   OBUF
+       42 submodules
+        4   CARRY4
+       28   FDRE
+       10   RAM32M
+
+   Estimated number of LCs:         30
+
+11.57. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\sequential_matmul\N=s32'00000000000000000000000000000100...
+Found and reported 0 problems.
+
+12. Printing statistics.
+
+=== $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      190 wires
+      370 wire bits
+       22 public wires
+      116 public wire bits
+       14 ports
+       71 port bits
+      152 cells
+        1   $scopeinfo
+        1   BUFG
+        4   CARRY4
+        1   DSP48E1
+       28   FDRE
+       21   IBUF
+        1   INV
+        5   LUT2
+        2   LUT3
+        7   LUT4
+       17   LUT5
+        4   LUT6
+       50   OBUF
+       10   RAM32M
+
+Warnings: 4 unique messages, 4 total
+End of script. Logfile hash: 2bb0eeb3e6, time: 2.05s, user: 1.93s, system: 0.06s, MEM: 155.06 MB peak
+Yosys 0.71+post (git sha1 5628c13240f670b97aaaca3d47940c4afb8ff572, Release, AppleClang clang++ 21.0.0.21000401)
+Time spent: 71% 35x read_verilog (1 sec), 5% 13x design (0 sec), ...

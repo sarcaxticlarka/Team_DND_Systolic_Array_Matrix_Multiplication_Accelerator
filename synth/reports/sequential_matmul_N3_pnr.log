@@ -1,0 +1,349 @@
+
+
+Info: Logic utilisation before packing:
+Info:     Total LUT4s:       160/24288     0%
+Info:         logic LUTs:     40/24288     0%
+Info:         carry LUTs:     48/24288     0%
+Info:           RAM LUTs:     48/ 3036     1%
+Info:          RAMW LUTs:     24/ 6072     0%
+
+Info:      Total DFFs:        60/24288     0%
+
+Info: Packing IOs..
+Info: Packing constants..
+Info: Packing carries...
+Info: Packing LUTs...
+Info: Packing LUT5-7s...
+Info: Packing FFs...
+Info:     59 FFs paired with LUTs.
+Info: Generating derived timing constraints...
+Info: Promoting globals...
+Info:     promoting clock net clk$TRELLIS_IO_IN to global network
+Info: Checksum: 0xc01565f8
+
+Info: Device utilisation:
+Info: 	          TRELLIS_IO:      71/    197    36%
+Info: 	                DCCA:       1/     56     1%
+Info: 	              DP16KD:       0/     56     0%
+Info: 	          MULT18X18D:       1/     28     3%
+Info: 	              ALU54B:       0/     14     0%
+Info: 	             EHXPLLL:       0/      2     0%
+Info: 	             EXTREFB:       0/      1     0%
+Info: 	                DCUA:       0/      1     0%
+Info: 	           PCSCLKDIV:       0/      2     0%
+Info: 	             IOLOGIC:       0/    128     0%
+Info: 	            SIOLOGIC:       0/     69     0%
+Info: 	                 GSR:       0/      1     0%
+Info: 	               JTAGG:       0/      1     0%
+Info: 	                OSCG:       0/      1     0%
+Info: 	               SEDGA:       0/      1     0%
+Info: 	                 DTR:       0/      1     0%
+Info: 	             USRMCLK:       0/      1     0%
+Info: 	             CLKDIVF:       0/      4     0%
+Info: 	           ECLKSYNCB:       0/     10     0%
+Info: 	             DLLDELD:       0/      8     0%
+Info: 	              DDRDLL:       0/      4     0%
+Info: 	             DQSBUFM:       0/      8     0%
+Info: 	     TRELLIS_ECLKBUF:       0/      8     0%
+Info: 	        ECLKBRIDGECS:       0/      2     0%
+Info: 	                DCSC:       0/      2     0%
+Info: 	          TRELLIS_FF:      60/  24288     0%
+Info: 	        TRELLIS_COMB:     170/  24288     0%
+Info: 	        TRELLIS_RAMW:      12/   3036     0%
+
+Info: Placed 0 cells based on constraints.
+Info: Creating initial analytic placement for 58 cells, random placement wirelen = 9933.
+Info:     at initial placer iter 0, wirelen = 4000
+Info:     at initial placer iter 1, wirelen = 3296
+Info:     at initial placer iter 2, wirelen = 3181
+Info:     at initial placer iter 3, wirelen = 3131
+Info: Running main analytical placer, max placement attempts per cell = 12403.
+Info:     at iteration #1, type ALL: wirelen solved = 3123, spread = 3409, legal = 3774; time = 0.00s
+Info: HeAP Placer Time: 0.04s
+Info:   of which solving equations: 0.01s
+Info:   of which spreading cells: 0.00s
+Info:   of which strict legalisation: 0.00s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 181, wirelen = 3774
+Info:   at iteration #5: temp = 0.000000, timing cost = 79, wirelen = 2970
+Info:   at iteration #10: temp = 0.000000, timing cost = 86, wirelen = 2941
+Info:   at iteration #11: temp = 0.000000, timing cost = 86, wirelen = 2938 
+Info: SA placement time 0.08s
+
+Info: Max frequency for clock '$glbnet$clk$TRELLIS_IO_IN': 107.26 MHz (PASS at 100.00 MHz)
+
+Info: Max delay <async>                           -> <async>                          : 13.84 ns
+Info: Max delay <async>                           -> posedge $glbnet$clk$TRELLIS_IO_IN: 7.91 ns
+Info: Max delay posedge $glbnet$clk$TRELLIS_IO_IN -> <async>                          : 7.09 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [   677,   1074) |******+
+Info: [  1074,   1471) |*****+
+Info: [  1471,   1868) |****+
+Info: [  1868,   2265) | 
+Info: [  2265,   2662) |+
+Info: [  2662,   3059) | 
+Info: [  3059,   3456) | 
+Info: [  3456,   3853) | 
+Info: [  3853,   4250) | 
+Info: [  4250,   4647) | 
+Info: [  4647,   5044) | 
+Info: [  5044,   5441) | 
+Info: [  5441,   5838) | 
+Info: [  5838,   6235) |***+
+Info: [  6235,   6632) |************************+
+Info: [  6632,   7029) |************+
+Info: [  7029,   7426) |**************+
+Info: [  7426,   7823) |**********************************+
+Info: [  7823,   8220) |************************************************************ 
+Info: [  8220,   8617) |***************+
+Info: Checksum: 0xc36e4716
+Info: Routing globals...
+Info:     routing clock net $glbnet$clk$TRELLIS_IO_IN using global 0
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 935 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      111        861 |  111   861 |        53|       0.37       0.37|
+Info:       1052 |      111        913 |    0    52 |         0|       0.01       0.38|
+Info: Routing complete.
+Info: Router1 time 0.38s
+Info: Checksum: 0x76cdbacd
+
+Info: Critical path report for clock '$glbnet$clk$TRELLIS_IO_IN' (posedge -> posedge):
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source k_TRELLIS_FF_Q_1.Q
+Info:    routing  1.12  1.65 Net k[1] (13,16) -> (14,16)
+Info:                          Sink A.0.0$DPRAM_COMB1.B
+Info:                          Defined in:
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info:      logic  0.24  1.88 Source A.0.0$DPRAM_COMB1.F
+Info:    routing  1.33  3.21 Net A.0.0_DO_2 (14,16) -> (13,13)
+Info:                          Sink u_mac.p_use_MULT18X18D_P9.A1
+Info:      logic  3.93  7.14 Source u_mac.p_use_MULT18X18D_P9.P2
+Info:    routing  1.40  8.54 Net u_mac.p_use[2] (13,13) -> (11,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_5_DI_CCU2C_S1$CCU2_COMB0.A
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:25.32-25.37
+Info:      logic  0.45  8.98 Source u_mac.acc_TRELLIS_FF_Q_5_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  8.98 Net u_mac.acc_TRELLIS_FF_Q_5_DI_CCU2C_S1$CCU2_FCI_INT (11,12) -> (11,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_5_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  8.98 Source u_mac.acc_TRELLIS_FF_Q_5_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  8.98 Net u_mac.acc_TRELLIS_FF_Q_5_DI_CCU2C_S1_COUT (11,12) -> (11,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_7_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.06 Source u_mac.acc_TRELLIS_FF_Q_7_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.06 Net u_mac.acc_TRELLIS_FF_Q_7_DI_CCU2C_S1$CCU2_FCI_INT (11,12) -> (11,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_7_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.06 Source u_mac.acc_TRELLIS_FF_Q_7_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.06 Net u_mac.acc_TRELLIS_FF_Q_7_DI_CCU2C_S1_COUT (11,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_9_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.13 Source u_mac.acc_TRELLIS_FF_Q_9_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.13 Net u_mac.acc_TRELLIS_FF_Q_9_DI_CCU2C_S1$CCU2_FCI_INT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_9_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.13 Source u_mac.acc_TRELLIS_FF_Q_9_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.13 Net u_mac.acc_TRELLIS_FF_Q_9_DI_CCU2C_S1_COUT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_11_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.20 Source u_mac.acc_TRELLIS_FF_Q_11_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.20 Net u_mac.acc_TRELLIS_FF_Q_11_DI_CCU2C_S1$CCU2_FCI_INT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_11_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.20 Source u_mac.acc_TRELLIS_FF_Q_11_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.20 Net u_mac.acc_TRELLIS_FF_Q_11_DI_CCU2C_S1_COUT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_13_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.27 Source u_mac.acc_TRELLIS_FF_Q_13_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.27 Net u_mac.acc_TRELLIS_FF_Q_13_DI_CCU2C_S1$CCU2_FCI_INT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_13_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.27 Source u_mac.acc_TRELLIS_FF_Q_13_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.27 Net u_mac.acc_TRELLIS_FF_Q_13_DI_CCU2C_S1_COUT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_14_DI_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.34 Source u_mac.acc_TRELLIS_FF_Q_14_DI_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  9.34 Net u_mac.acc_TRELLIS_FF_Q_14_DI_CCU2C_S0$CCU2_FCI_INT (12,12) -> (12,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_14_DI_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  9.34 Source u_mac.acc_TRELLIS_FF_Q_14_DI_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  9.34 Net u_mac.acc_TRELLIS_FF_Q_14_DI_CCU2C_S0_COUT (12,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_17_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.41 Source u_mac.acc_TRELLIS_FF_Q_17_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.41 Net u_mac.acc_TRELLIS_FF_Q_17_DI_CCU2C_S1$CCU2_FCI_INT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_17_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.41 Source u_mac.acc_TRELLIS_FF_Q_17_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.41 Net u_mac.acc_TRELLIS_FF_Q_17_DI_CCU2C_S1_COUT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_19_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.48 Source u_mac.acc_TRELLIS_FF_Q_19_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.48 Net u_mac.acc_TRELLIS_FF_Q_19_DI_CCU2C_S1$CCU2_FCI_INT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_19_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.48 Source u_mac.acc_TRELLIS_FF_Q_19_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.48 Net u_mac.acc_TRELLIS_FF_Q_19_DI_CCU2C_S1_COUT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_20_DI_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.55 Source u_mac.acc_TRELLIS_FF_Q_20_DI_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  9.55 Net u_mac.acc_TRELLIS_FF_Q_20_DI_CCU2C_S0$CCU2_FCI_INT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_20_DI_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  9.55 Source u_mac.acc_TRELLIS_FF_Q_20_DI_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  9.55 Net u_mac.acc_TRELLIS_FF_Q_20_DI_CCU2C_S0_COUT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_23_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.62 Source u_mac.acc_TRELLIS_FF_Q_23_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.62 Net u_mac.acc_TRELLIS_FF_Q_23_DI_CCU2C_S1$CCU2_FCI_INT (13,12) -> (13,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_23_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.62 Source u_mac.acc_TRELLIS_FF_Q_23_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.62 Net u_mac.acc_TRELLIS_FF_Q_23_DI_CCU2C_S1_COUT (13,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_25_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.69 Source u_mac.acc_TRELLIS_FF_Q_25_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.69 Net u_mac.acc_TRELLIS_FF_Q_25_DI_CCU2C_S1$CCU2_FCI_INT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_25_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.69 Source u_mac.acc_TRELLIS_FF_Q_25_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.69 Net u_mac.acc_TRELLIS_FF_Q_25_DI_CCU2C_S1_COUT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_26_DI_CCU2C_S0$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.77 Source u_mac.acc_TRELLIS_FF_Q_26_DI_CCU2C_S0$CCU2_COMB0.FCO
+Info:    routing  0.00  9.77 Net u_mac.acc_TRELLIS_FF_Q_26_DI_CCU2C_S0$CCU2_FCI_INT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_26_DI_CCU2C_S0$CCU2_COMB1.FCI
+Info:      logic  0.00  9.77 Source u_mac.acc_TRELLIS_FF_Q_26_DI_CCU2C_S0$CCU2_COMB1.FCO
+Info:    routing  0.00  9.77 Net u_mac.acc_TRELLIS_FF_Q_26_DI_CCU2C_S0_COUT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_29_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.84 Source u_mac.acc_TRELLIS_FF_Q_29_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.84 Net u_mac.acc_TRELLIS_FF_Q_29_DI_CCU2C_S1$CCU2_FCI_INT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_29_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.84 Source u_mac.acc_TRELLIS_FF_Q_29_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.84 Net u_mac.acc_TRELLIS_FF_Q_29_DI_CCU2C_S1_COUT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_31_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.91 Source u_mac.acc_TRELLIS_FF_Q_31_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.91 Net u_mac.acc_TRELLIS_FF_Q_31_DI_CCU2C_S1$CCU2_FCI_INT (14,12) -> (14,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_31_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.00  9.91 Source u_mac.acc_TRELLIS_FF_Q_31_DI_CCU2C_S1$CCU2_COMB1.FCO
+Info:    routing  0.00  9.91 Net u_mac.acc_TRELLIS_FF_Q_31_DI_CCU2C_S1_COUT (14,12) -> (15,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_DI_CCU2C_S1$CCU2_COMB0.FCI
+Info:                          Defined in:
+Info:                               rtl/mac_unit.v:48.20-48.72
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/arith_map_ccu2c.v:74.7-80.4
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/ccu2c_sim.vh:9.9-9.13
+Info:      logic  0.07  9.98 Source u_mac.acc_TRELLIS_FF_Q_DI_CCU2C_S1$CCU2_COMB0.FCO
+Info:    routing  0.00  9.98 Net u_mac.acc_TRELLIS_FF_Q_DI_CCU2C_S1$CCU2_FCI_INT (15,12) -> (15,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q_DI_CCU2C_S1$CCU2_COMB1.FCI
+Info:      logic  0.40  10.38 Source u_mac.acc_TRELLIS_FF_Q_DI_CCU2C_S1$CCU2_COMB1.F
+Info:    routing  0.13  10.51 Net u_mac.acc_TRELLIS_FF_Q_DI (15,12) -> (15,12)
+Info:                          Sink u_mac.acc_TRELLIS_FF_Q.DI
+Info:      setup  0.00  10.51 Source u_mac.acc_TRELLIS_FF_Q.DI
+Info: 6.53 ns logic, 3.98 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> '<async>':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source rd_col[1]$tr_io.O
+Info:    routing  4.76  4.76 Net rd_col[1]$TRELLIS_IO_IN (72,26) -> (12,17)
+Info:                          Sink C.0.3$DPRAM_COMB0.B
+Info:                          Defined in:
+Info:                               rtl/sequential_matmul.v:29.30-29.36
+Info:      logic  0.24  5.00 Source C.0.3$DPRAM_COMB0.F
+Info:    routing  4.10  9.10 Net rd_data[12]$TRELLIS_IO_OUT (12,17) -> (72,23)
+Info:                          Sink rd_data[12]$tr_io.I
+Info:                          Defined in:
+Info:                               rtl/sequential_matmul.v:30.30-30.37
+Info: 0.24 ns logic, 8.86 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge $glbnet$clk$TRELLIS_IO_IN':
+Info:       type curr  total name
+Info:     source  0.00  0.00 Source wr_sel$tr_io.O
+Info:    routing  4.18  4.18 Net wr_sel$TRELLIS_IO_IN (72,20) -> (14,15)
+Info:                          Sink wr_en_LUT4_C_1.D
+Info:                          Defined in:
+Info:                               rtl/sequential_matmul.v:20.30-20.36
+Info:      logic  0.24  4.41 Source wr_en_LUT4_C_1.F
+Info:    routing  0.61  5.02 Net wr_en_LUT4_C_1_Z (14,15) -> (13,14)
+Info:                          Sink B.0.1$DPRAM_COMB3.WRE
+Info:      setup  0.39  5.41 Source B.0.1$DPRAM_COMB3.WRE
+Info: 0.63 ns logic, 4.78 ns routing
+
+Info: Critical path report for cross-domain path 'posedge $glbnet$clk$TRELLIS_IO_IN' -> '<async>':
+Info:       type curr  total name
+Info:   clk-to-q  0.52  0.52 Source cycle_count_TRELLIS_FF_Q_9.Q
+Info:    routing  3.94  4.47 Net cycle_count[8]$TRELLIS_IO_OUT (16,16) -> (72,26)
+Info:                          Sink cycle_count[8]$tr_io.I
+Info:                          Defined in:
+Info:                               /opt/homebrew/Cellar/yosys/0.71/bin/../share/yosys/lattice/cells_map_trellis.v:108.23-108.24
+Info: 0.52 ns logic, 3.94 ns routing
+
+ERROR: Max frequency for clock '$glbnet$clk$TRELLIS_IO_IN': 95.13 MHz (FAIL at 100.00 MHz)
+
+Info: Max delay <async>                           -> <async>                          : 9.10 ns
+Info: Max delay <async>                           -> posedge $glbnet$clk$TRELLIS_IO_IN: 5.41 ns
+Info: Max delay posedge $glbnet$clk$TRELLIS_IO_IN -> <async>                          : 4.47 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 2 endpoint(s)
+Info:          + represents [1,2) endpoint(s)
+Info: [  -512,    -40) |*****+
+Info: [   -40,    432) |*****+
+Info: [   432,    904) |*+
+Info: [   904,   1376) |+
+Info: [  1376,   1848) | 
+Info: [  1848,   2320) | 
+Info: [  2320,   2792) | 
+Info: [  2792,   3264) | 
+Info: [  3264,   3736) | 
+Info: [  3736,   4208) | 
+Info: [  4208,   4680) | 
+Info: [  4680,   5152) | 
+Info: [  5152,   5624) | 
+Info: [  5624,   6096) |*+
+Info: [  6096,   6568) |*************+
+Info: [  6568,   7040) |****************+
+Info: [  7040,   7512) |*******+
+Info: [  7512,   7984) |****************+
+Info: [  7984,   8456) |************************************************************ 
+Info: [  8456,   8928) |************+
+0 warnings, 1 error
+
+Info: Program finished normally.

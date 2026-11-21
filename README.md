@@ -2,7 +2,7 @@
 
 **Team DnD**
 
-| Member | Enrolment |
+| Member | Enrollment |
 |---|---|
 | Syed Darain Qamar | 2401010472 |
 | Md Sajjan | 2401010272 |
@@ -13,6 +13,10 @@
 A parameterised **output-stationary N×N systolic array** (default 4×4, also tested at 3×3) for **signed INT8 / Q3.4 fixed-point** matrix multiplication with 32-bit accumulators. It is written in synthesisable Verilog, verified with self-checking testbenches plus a NumPy golden model, and synthesised and placed-and-routed for FPGA. It is compared against a sequential single-MAC baseline and a pipelined-MAC variant.
 
 **Final report (IEEE format):** [`DnD_Systolic_Array_Report.pdf`](DnD_Systolic_Array_Report.pdf). The LaTeX source is in [`report/main.tex`](report/main.tex) and can be uploaded to Overleaf as-is, together with `docs/figures/`.
+
+**Demonstration video:** [watch on Google Drive](https://drive.google.com/file/d/1E0eEdf72pwOTkX3Pw1p8LjV24Erbv5UM/view?usp=sharing) (also linked in [`video/video.md`](video/video.md)).
+
+**Presentation:** [`presentation/DnD_Systolic_Array_Presentation.pptx`](presentation/DnD_Systolic_Array_Presentation.pptx), with the speaker script in [`presentation/DnD_Presentation_Script.pdf`](presentation/DnD_Presentation_Script.pdf).
 
 ---
 
@@ -64,10 +68,10 @@ All result tables are in [`docs/results_summary.md`](docs/results_summary.md) (a
 | Quantitative metric | Latency, throughput (MAC/cycle, GOPS), speed-up |
 | Synthesis: resources and Fmax | Report Table V (Artix-7 + ECP5 post-route Fmax) |
 | Baseline / alternative comparison | Sequential 1-MAC baseline and pipelined-MAC alternative |
-| Report and live demo | IEEE PDF and Basys-3 demo (see below) |
+| Report and live demo | IEEE PDF, [demo video](https://drive.google.com/file/d/1E0eEdf72pwOTkX3Pw1p8LjV24Erbv5UM/view?usp=sharing), `demo.sh` and the Basys-3 demo |
 
 ### Report sections (IEEE format)
-Abstract ✔ · Literature Review ✔ · Proposed Solution ✔ · Individual Contributions ✔ · References ✔ (16 IEEE-style references). It also has Verification, Results and Conclusion sections.
+Abstract ✔ · Literature Review ✔ · Proposed Solution ✔ · Individual Contributions ✔ · References ✔ (17 IEEE-style references, numbered in order of citation). It also has Verification, Results and Conclusion sections.
 
 ---
 
@@ -82,7 +86,17 @@ sim/        log_*.txt (testbench output), matmul_log_N*.txt, perf_sweep.txt, wav
 scripts/    run_sim.sh, run_synth.sh, verify_results.py, analyze.py, plot_waveform.py
 docs/       results_summary.md, *.csv, figures/*.png
 report/     main.tex (IEEEtran), main.pdf
+presentation/  slides (.pptx/.pdf) and speaker script
+video/      video.md (demonstration video link)
+demo.sh     step-by-step terminal demo
+run_all.sh  regenerates every result
 ```
+
+## Run the demo
+```bash
+./demo.sh
+```
+Runs the MAC, PE and full 4×4 array tests, the NumPy check and the speed comparison step by step (press Enter between steps; `NOPAUSE=1 ./demo.sh` runs straight through).
 
 ## How to reproduce
 ```bash
@@ -104,12 +118,3 @@ This writes the utilisation, timing and power reports and a bitstream to `synth/
 
 **Demo controls:** `btnU` = reset/reload, `btnC` = start. `sw[3:2]`/`sw[1:0]` select the row/column of C. `sw[4]` shows the upper 16 bits. `sw[15]` switches between the two demo matrix pairs. The 7-segment display shows C[r][c] in hex. `led[15]` = done and `led[7:0]` = latency in cycles (14 with the pipelined MAC).
 With set 0 (A = 1..16, B = 16..1), C[0][0] = 80 = `0x0050` and C[3][3] = 386 = `0x0182`.
-
----
-
-## Viva quick-reference
-- **Why output-stationary?** The 32-bit sum never moves, inter-PE wires stay 8-bit, there is no weight-preload phase, and the latency is simple: 3N+1.
-- **Why skew?** Lane *i* is delayed *i* cycles, so A[i][k] and B[k][j] both reach PE(i,j) at cycle k+1+i+j.
-- **Why drain = 2N−1?** 1 cycle of buffer latency + (N−1) skew + (N−1) hops. With 2N−2 the test fails, so 2N−1 is the minimum.
-- **Why does the pipelined MAC win?** +1 cycle but +26 % Fmax, so 15 % less wall-clock latency.
-- **Why is the end-to-end speed-up only about 2×?** Loading A and B one byte per cycle (2N² cycles) dominates. This is Amdahl's law, and it is the reason real TPUs use wide SRAM buffers and DMA.

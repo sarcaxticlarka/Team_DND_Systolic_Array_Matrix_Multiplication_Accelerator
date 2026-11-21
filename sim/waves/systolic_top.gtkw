@@ -1,0 +1,26 @@
+[*] GTKWave save file -- Team DnD systolic array (open: gtkwave sim/waves/tb_systolic_top.vcd sim/waves/systolic_top.gtkw)
+[dumpfile] "sim/waves/tb_systolic_top.vcd"
+[timestart] 0
+@28
+tb_systolic_top.dut.clk
+tb_systolic_top.dut.start
+@22
+tb_systolic_top.dut.u_ctrl.state[2:0]
+tb_systolic_top.dut.u_ctrl.rd_k[1:0]
+@28
+tb_systolic_top.dut.u_ctrl.clear
+tb_systolic_top.dut.u_ctrl.feed_valid
+@22
+tb_systolic_top.dut.a_west[31:0]
+@28
+tb_systolic_top.dut.v_west[3:0]
+@22
+tb_systolic_top.dut.b_skewed[31:0]
+@24
+tb_systolic_top.dut.u_array.row[0].col[0].u_pe.acc[31:0]
+tb_systolic_top.dut.u_array.row[3].col[3].u_pe.acc[31:0]
+@28
+tb_systolic_top.dut.u_ctrl.capture
+tb_systolic_top.dut.done
+@24
+tb_systolic_top.dut.cycle_count[15:0]

@@ -1,0 +1,22 @@
+
+12. Printing statistics.
+
+=== $paramod\sequential_matmul\N=s32'00000000000000000000000000000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      172 wires
+      335 wire bits
+      172 public wires
+      335 public wire bits
+       14 ports
+       71 port bits
+      141 cells
+        1   $scopeinfo
+       24   CCU2C
+       41   LUT4
+        1   MULT18X18D
+        2   PFUMX
+       12   TRELLIS_DPR16X4
+       60   TRELLIS_FF
+

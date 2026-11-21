@@ -1,0 +1,3 @@
+latency LEDs = 14 cycles
+RESULT: FPGA_DEMO PASSED
+tb/tb_fpga_demo.v:18: $finish called at 1190000 (1ps)

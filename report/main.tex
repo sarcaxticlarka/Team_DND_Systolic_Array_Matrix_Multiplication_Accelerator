@@ -15,22 +15,23 @@
 
 \begin{document}
 
-\title{Design and FPGA Evaluation of a Parameterised Output-Stationary Systolic Array Accelerator for Fixed-Point Matrix Multiplication}
+\title{Design and FPGA Evaluation of a Parameterized Output-Stationary Systolic Array Accelerator for Fixed-Point Matrix Multiplication%
+\thanks{Team DnD, Project 12, Modern Computer Architecture; B.Tech, Computer Science and Artificial Intelligence.}}
 
-\author{%
-\begin{tabular}{c}
-{\Large Team DnD}\\[3pt]
-{\small\itshape Project 12, Modern Computer Architecture}\\
-{\small\itshape B.Tech, Computer Science and Artificial Intelligence}\\[10pt]
-\begin{tabular}{c@{\hspace{2.4em}}c@{\hspace{2.4em}}c}
-Syed Darain Qamar & Md Sajjan & Sibtain Ahmed Qureshi\\
-{\small 2401010472} & {\small 2401010272} & {\small 2401010454}
-\end{tabular}\\[8pt]
-\begin{tabular}{c@{\hspace{2.4em}}c}
-Abuzar Haideri & Antik Mandal\\
-{\small 2401010024} & {\small 2401010084}
-\end{tabular}
-\end{tabular}}
+\author{\IEEEauthorblockN{Syed Darain Qamar}
+\IEEEauthorblockA{\textit{Newton School of Technology}\\\textit{Rishihood University}\\Sonipat, India\\darainqamar10@gmail.com}
+\and
+\IEEEauthorblockN{Md Sajjan}
+\IEEEauthorblockA{\textit{Newton School of Technology}\\\textit{Rishihood University}\\Sonipat, India\\osmsad786@gmail.com}
+\and
+\IEEEauthorblockN{Sibtain Ahmed Qureshi}
+\IEEEauthorblockA{\textit{Newton School of Technology}\\\textit{Rishihood University}\\Sonipat, India\\sibtainahmedqureshi28@gmail.com}
+\and
+\IEEEauthorblockN{Abuzar Haideri}
+\IEEEauthorblockA{\textit{Newton School of Technology}\\\textit{Rishihood University}\\Sonipat, India}
+\and
+\IEEEauthorblockN{Antik Mondal}
+\IEEEauthorblockA{\textit{Newton School of Technology}\\\textit{Rishihood University}\\Sonipat, India\\itsantikmondal143@gmail.com}}
 
 \maketitle
 
@@ -38,30 +39,30 @@ Abuzar Haideri & Antik Mandal\\
 \begin{abstract}
 Matrix multiplication dominates the run time of modern deep-learning
 workloads, and dedicated systolic-array hardware such as Google's Tensor
-Processing Unit has become the canonical way to accelerate it. This paper
-presents the design, verification and FPGA evaluation of a small, fully
-parameterised \emph{output-stationary} systolic-array accelerator written in
-synthesisable Verilog. The design is built bottom-up from a signed fixed-point
-multiply--accumulate (MAC) unit, a processing element (PE) with registered
-nearest-neighbour data forwarding, operand input buffers, triangular skew
-buffers, an $N\times N$ PE mesh, an output/accumulator register bank, and a
-finite-state-machine controller behind a simple matrix data interface. A
-pipelined-MAC variant and a single-MAC sequential multiplier were also
-implemented for comparison. Self-checking testbenches exercised 224 matrix
-products (2\,800 result elements) for $N=3$ and $N=4$ and agreed exactly with
-both a Verilog behavioural model and an independent NumPy golden model. The
-measured latency of one $N\times N$ product is exactly $3N+1$ cycles against
-$N^2(N+1)+1$ cycles for the sequential baseline, a $6.23\times$ cycle speed-up
-for $N=4$ that grows to $23.1\times$ at $N=8$. After place-and-route on a
-Lattice ECP5 the $4\times4$ array closes timing at 100.5\,MHz (127.0\,MHz with
-the pipelined MAC), giving 1.16\,GOPS sustained and a $7.9\times$ wall-clock
-speed-up over the baseline while using 16 hard multipliers. Artix-7 synthesis
-uses 233 LUTs, 789 flip-flops and 16 DSP48E1 slices.
+Processing Unit (TPU) has become the standard way to accelerate it. This
+paper presents the design, verification and field-programmable gate array
+(FPGA) evaluation of a small, fully parameterized \emph{output-stationary}
+systolic-array accelerator written in synthesizable Verilog. The design is
+built bottom-up from a signed fixed-point multiply--accumulate (MAC) unit, a
+processing element (PE) that forwards data to its neighbors, input buffers,
+skew buffers, a grid of PEs, output registers and a finite-state machine (FSM)
+controller behind a simple data interface. A pipelined-MAC variant and a
+single-MAC sequential multiplier were also built for comparison.
+Self-checking testbenches ran 224 matrix products (2\,800 result elements)
+for 3-by-3 and 4-by-4 arrays, and every result matched both a Verilog
+reference model and an independent NumPy model. One $N\times N$ product takes
+exactly $3N+1$ clock cycles, against $N^2(N+1)+1$ for the sequential
+baseline: a 6.2$\times$ cycle speed-up for $N=4$ that grows to
+23.1$\times$ for $N=8$. After place-and-route on a Lattice ECP5, the 4-by-4
+array runs at 100.5\,MHz, or 127.0\,MHz with the pipelined MAC, sustaining
+1.16 giga-operations per second (GOPS) and a 7.9$\times$ wall-clock speed-up
+over the baseline. On a Xilinx Artix-7 it uses 233 look-up tables (LUTs),
+789 flip-flops and 16 DSP48E1 slices.
 \end{abstract}
 
 \begin{IEEEkeywords}
-systolic array, matrix multiplication, hardware accelerator, processing
-element, multiply--accumulate, FPGA, Verilog, fixed-point, AI hardware
+AI hardware, fixed-point, FPGA, hardware accelerator, matrix multiplication,
+multiply--accumulate, processing element, systolic array, Verilog
 \end{IEEEkeywords}
 
 % ============================================================================
@@ -74,21 +75,23 @@ bandwidth needed to fetch two operands per MAC. Systolic arrays, introduced by
 Kung and Leiserson~\cite{kung1979systolic,kung1982why}, solve both problems:
 a regular grid of simple PEs computes $N^2$ MACs per cycle, and each operand
 fetched from memory is reused $N$ times as it is pumped from PE to PE through
-short local wires. This principle underlies Google's TPU~\cite{jouppi2017tpu},
-whose $256\times256$ array delivers 92\,TOPS of INT8 throughput.
+short local wires. This principle underlies Google's Tensor Processing Unit
+(TPU)~\cite{jouppi2017tpu}, whose $256\times256$ array delivers 92 tera-operations
+per second (TOPS) of INT8 throughput.
 
 This project translates those ideas, covered in the Modern Computer Architecture units on
 parallelism, pipelining and modern AI hardware~\cite{hennessy2019ca}, into a
-verified hardware implementation. The contributions are:
+verified field-programmable gate array (FPGA) implementation. The
+contributions are:
 \begin{enumerate}\setlength{\itemsep}{1pt}
-\item A modular, parameterised ($N$, operand width, accumulator width,
-  pipelining) Verilog RTL of an output-stationary systolic array with every
+\item A modular, parameterized ($N$, operand width, accumulator width,
+  pipelining) Verilog register-transfer level (RTL) description of an output-stationary systolic array with every
   sub-module requested by the project brief: MAC unit, PE, input buffers,
   output/accumulator registers, systolic controller and matrix data interface.
 \item A closed-form, cycle-exact latency model ($3N+1$ cycles) that is
   confirmed by simulation, and a proof that the controller's drain time is
   minimal.
-\item A directed and randomised self-checking verification environment with
+\item A directed and randomized self-checking verification environment with
   an independent NumPy golden model and waveform analysis.
 \item Synthesis, place-and-route and timing results for two FPGA families and a
   quantitative comparison against a sequential single-MAC baseline and a
@@ -99,27 +102,27 @@ verified hardware implementation. The contributions are:
 % ============================================================================
 \section{Literature Review}
 
-\subsection{Systolic arrays}
+\subsection{Systolic Arrays}
 Kung and Leiserson~\cite{kung1979systolic} defined a systolic system as a
 network of processors that rhythmically compute and pass data through the
 system, and showed hexagonal and orthogonal arrays for matrix--vector and
 matrix--matrix products. Kung's later article~\cite{kung1982why} argued that
 the approach balances computation with I/O: since each datum is used many times
 once it enters the array, a modest memory bandwidth can sustain a large number
-of arithmetic units. S.~Y.~Kung~\cite{kung1988vlsi} generalised the design
+of arithmetic units. S.~Y.~Kung~\cite{kung1988vlsi} generalized the design
 process by mapping dependence graphs of regular algorithms onto processor
 arrays through space--time transformations, which is the method we use in
 Section~\ref{sec:dataflow} to derive the operand skew.
 
-\subsection{Dataflow taxonomy}
+\subsection{Dataflow Taxonomy}
 Chen \emph{et al.}~\cite{chen2017eyeriss} and the survey of Sze
-\emph{et al.}~\cite{sze2017efficient} classify DNN accelerators by which
+\emph{et al.}~\cite{sze2017efficient} classify deep neural network (DNN) accelerators by which
 operand stays resident in each PE. In a \emph{weight-stationary} (WS) array
-(e.g.\ TPU~\cite{jouppi2017tpu}) weights are preloaded and partial sums flow
+(e.g.\ TPU~\cite{jouppi2017tpu}) weights are preloaded and partial sums (psums) flow
 through the array; in an \emph{output-stationary} (OS) array
 (e.g.\ ShiDianNao~\cite{du2015shidiannao}) each PE owns one output element and
 both input operands flow; Eyeriss introduced a \emph{row-stationary} dataflow
-that maximises reuse for convolutions. Table~\ref{tab:dataflow} summarises the
+that maximizes reuse for convolutions. Table~\ref{tab:dataflow} summarizes the
 trade-offs. Gemmini~\cite{genc2021gemmini} showed that both WS and OS can be
 supported by one generator, and SCALE-Sim~\cite{samajdar2018scalesim} gives
 analytic models of their run time, which our cycle model mirrors for the OS
@@ -147,26 +150,25 @@ the full 32-bit sum is kept without inter-PE adders on the critical path;
 weight-preload phase is needed, which keeps the controller simple and the
 latency formula transparent for a teaching project.
 
-\subsection{Reduced-precision arithmetic}
+\subsection{Reduced-Precision Arithmetic}
 Jacob \emph{et al.}~\cite{jacob2018quantization} showed that neural networks
 can run inference with 8-bit integer weights and activations and 32-bit
 accumulators with negligible accuracy loss; TPU v1 adopted exactly this
 INT8$\times$INT8$\rightarrow$INT32 format~\cite{jouppi2017tpu}. We follow the
 same convention (interpretable as Q3.4 fixed-point), which maps each multiplier
-onto one FPGA hard DSP block~\cite{xilinx2018dsp48} and avoids floating-point
+onto one hard digital signal processing (DSP) block~\cite{xilinx2018dsp48} and avoids floating-point
 units that would not be practical on a student FPGA.
 
-\subsection{Research gap addressed}
-Published accelerators are large and their RTL is difficult to study.
-Course-level material~\cite{patterson2020cod,hennessy2019ca} explains
-the concept but rarely provides a cycle-exact, verified, synthesised design
-compared against a baseline. This work fills that gap with a compact design
-whose every cycle can be explained and checked against a closed-form model.
+\subsection{Research Gap Addressed}
+Published accelerators are large and their RTL is hard to study, while
+course material~\cite{patterson2020cod,hennessy2019ca} rarely provides a
+cycle-exact, verified and synthesized design compared against a baseline.
+This work fills that gap with a compact design whose every cycle is explained.
 
 % ============================================================================
 \section{Proposed Solution}
 
-\subsection{System architecture}
+\subsection{System Architecture}
 Fig.~\ref{fig:block} shows the top-level architecture (\texttt{systolic\_top}).
 The host writes the operand matrices element-by-element through the
 \emph{matrix data interface} into two \emph{input buffers}. After
@@ -204,7 +206,10 @@ which the host reads $C$ while the array is free for the next job. A
  \foreach \i [count=\in from 1] in {0,...,2}{ \draw[->, thick, blue!70!black] (p\i\j) -- (p\in\j); }}
 \node[draw, dashed, inner sep=4pt, fit=(p00)(p33)] (arr) {};
 \node[font=\scriptsize, anchor=west] at ($(arr.east)+(0.05,0)$) {\begin{tabular}{@{}l@{}}$N\times N$\\systolic\\array\\(output-\\stationary)\end{tabular}};
-% skew to grid
+% skew to grid (arrows also labeled for grayscale printing)
+\node[font=\scriptsize, fill=white, inner sep=1pt] at (7.35,-2.2) {$A$ rows + valid $\rightarrow$};
+\node[font=\scriptsize, fill=white, inner sep=1pt] at (7.95,2.85) {$B$ columns $\downarrow$};
+
 \foreach \i in {0,...,3}{ \draw[->, thick, red!70!black] (skA.east) to[out=0,in=180] (p\i0.west); }
 \foreach \j in {0,...,3}{ \draw[->, thick, blue!70!black] (skB.east) to[out=0,in=90] (p0\j.north); }
 % output
@@ -218,15 +223,15 @@ which the host reads $C$ while the array is free for the next job. A
 \draw[bus] (bufA) -- node[above,font=\scriptsize]{$N\times8$} (skA);
 \draw[bus] (bufB) -- node[above,font=\scriptsize]{$N\times8$} (skB);
 \draw[bus] (host.south) |- node[pos=0.68,above,font=\scriptsize]{start / busy, done} (ctl.west);
-\draw[bus, dashed] (ctl.north) -- node[right,font=\scriptsize]{rd\_en, k, valid} (bufA.south -| ctl.north);
+\draw[bus, dashed] (ctl.north) -- node[left,font=\scriptsize]{rd\_en, k, valid} (bufA.south -| ctl.north);
 \draw[bus, dashed] (ctl.east) -- node[above,font=\scriptsize]{clear, capture} (out.west);
 \draw[bus] (out.south) -- ++(0,-0.55) -| node[pos=0.25,below,font=\scriptsize]{rd\_data (32 b)} ($(host.south)+(-0.6,0)$);
 \end{tikzpicture}
-\caption{Top-level block diagram of the systolic-array accelerator (shown for $N=4$). Red arrows carry $A$ operands and the valid flag eastward; blue arrows carry $B$ operands southward.}
+\caption{Top-level block diagram of the systolic-array accelerator (shown for $N=4$). $A$ rows and the valid flag enter from the left and move east along the horizontal arrows; $B$ columns enter from the top and move south along the vertical arrows.}
 \label{fig:block}
 \end{figure*}
 
-\subsection{Dataflow and operand skew}\label{sec:dataflow}
+\subsection{Output-Stationary Dataflow and Operand Skew}\label{sec:dataflow}
 In the OS dataflow, PE$(i,j)$ computes
 $C_{ij}=\sum_{k=0}^{N-1}A_{ik}B_{kj}$. Row $i$ of $A$ enters the west edge of
 row $i$ and moves one PE east per cycle; column $j$ of $B$ enters the north
@@ -235,7 +240,7 @@ of $A$ and row $k$ of $B$) be read from the buffers in cycle $k$. Lane $i$ of
 the A skew buffer delays its operand by $i$ cycles and each PE hop adds one
 register, so $A_{ik}$ reaches PE$(i,j)$ at
 \begin{equation}
-t_A(i,j,k) = k + 1 + i + j ,
+t_A(i,j,k) = k + 1 + i + j ,\label{eq:skew}
 \end{equation}
 where the $+1$ is the buffer read register. Symmetrically, $B_{kj}$ is delayed
 $j$ cycles by its skew lane and travels $i$ hops south, giving
@@ -243,7 +248,7 @@ $t_B(i,j,k)=k+1+j+i=t_A(i,j,k)$. Hence \emph{both operands of every product
 meet in the correct PE in the same cycle}, which is the fundamental systolic
 invariant. The waveform in Fig.~\ref{fig:wave} shows this diagonal wavefront.
 
-\subsection{MAC unit and processing element}
+\subsection{MAC Unit and Processing Element}
 The \texttt{mac\_unit} (Fig.~\ref{fig:pe}) multiplies two signed 8-bit
 operands into a 16-bit product, sign-extends it to 32 bits and adds it to the
 accumulator when \texttt{en} is high; \texttt{clear} has priority and zeroes
@@ -302,11 +307,11 @@ stages at the cost of one cycle of latency.
 \label{fig:pe}
 \end{figure}
 
-\subsection{Input, skew and output buffers}
+\subsection{Input, Skew and Output Buffers}
 Each \texttt{input\_buffer} stores an $N\times N$ matrix addressed by the
 concatenation \{row, col\}. Using a power-of-two stride instead of
 $\textit{row}\cdot N+\textit{col}$ removed an address multiplier that the
-synthesiser otherwise mapped into a DSP block for $N=3$, reducing the
+synthesizer otherwise mapped into a DSP block for $N=3$, reducing the
 $3\times3$ ECP5 LUT count from 1\,913 to 764. Buffer A reads a column per
 cycle and buffer B a row per cycle. The \texttt{skew\_buffer} is a
 triangular shift register (lane $i$ has $i$ stages, $N(N-1)/2$ stages in
@@ -314,8 +319,8 @@ total). The \texttt{output\_buffer} captures all $N^2$ accumulators in one
 cycle and exposes them through a two-level (row, column) read multiplexer.
 
 \subsection{Controller}
-The controller FSM is shown in Fig.~\ref{fig:fsm} and Table~\ref{tab:fsm}.
-The drain length follows from Eq.~(1): the final product ($i=j=k=N-1$) is
+The controller finite-state machine (FSM) is shown in Fig.~\ref{fig:fsm} and Table~\ref{tab:fsm}.
+The drain length follows from \eqref{eq:skew}: the final product ($i=j=k=N-1$) is
 accumulated at $t=3N-2$ counted from the first FEED cycle, i.e.\ $2N-1$ cycles
 after the last FEED cycle. We verified that this is minimal: with a drain of
 $2N-2$ cycles the system testbench fails because PE$(N-1,N-1)$ is captured one
@@ -324,7 +329,7 @@ cycle too early. Summing the states,
 \begin{aligned}
 L_{\text{sys}} &= \underbrace{1}_{\text{CLR}} + \underbrace{N}_{\text{FEED}} + \underbrace{2N-1+P}_{\text{DRAIN}} + \underbrace{1}_{\text{CAPT}}\\
 &= 3N+1+P
-\end{aligned}
+\end{aligned}\label{eq:lsys}
 \end{equation}
 cycles, where $P\in\{0,1\}$ is the \texttt{PIPE} parameter.
 
@@ -372,15 +377,15 @@ DONE    & 1         & \texttt{done} pulse, \texttt{busy}=0 \\
 \end{tabular}
 \end{table}
 
-\subsection{Baseline: sequential single-MAC multiplier}
+\subsection{Baseline: Sequential Single-MAC Multiplier}
 For comparison, \texttt{sequential\_matmul} has the identical host interface
 but a single \texttt{mac\_unit} executing the $i,j,k$ triple loop: $N$ MAC
 cycles plus one write-back cycle per output element, i.e.
 \begin{equation}
-L_{\text{seq}} = N^2(N+1)+1 .
+L_{\text{seq}} = N^2(N+1)+1 .\label{eq:lseq}
 \end{equation}
 
-\subsection{Module hierarchy and FPGA demonstrator}
+\subsection{Module Hierarchy and FPGA Demonstrator}
 The hierarchy is \texttt{systolic\_top} $\supset$ \{\texttt{systolic\_controller},
 2$\times$\texttt{input\_buffer}, 2$\times$\texttt{skew\_buffer},
 \texttt{systolic\_array} $\supset N^2\times$\texttt{pe} $\supset$
@@ -397,7 +402,8 @@ switches and displays it in hexadecimal on the 7-segment display; LEDs show the
 Verification followed the bottom-up workflow of the brief: one PE, then the
 array, then the system. All testbenches are self-checking and print a
 PASS/FAIL verdict; simulation used Icarus Verilog~13 with
-\texttt{-Wall} (zero warnings) and VCD dumps for waveform inspection.
+\texttt{-Wall} (zero warnings)~\cite{icarus} and value change dump (VCD)
+files for waveform inspection.
 \begin{itemize}\setlength{\itemsep}{1pt}
 \item \textbf{\texttt{tb\_mac\_unit}} (74 checks): sign combinations, zero
   operand, \texttt{en}=0 hold, $127^2$, $(-128)^2$, $-128\cdot127$, clear
@@ -416,15 +422,12 @@ PASS/FAIL verdict; simulation used Icarus Verilog~13 with
 \end{itemize}
 
 \subsection{Results}
-Every testbench passed. Table~\ref{tab:verif} summarises the coverage. The
-NumPy model (\texttt{verify\_results.py}) re-computed all 224 logged products
+Every testbench passed. Table~\ref{tab:verif} summarizes the coverage. The
+NumPy~\cite{numpy} model (\texttt{verify\_results.py}) re-computed all 224 logged products
 and found zero mismatches; for the Q3.4 test the maximum error against
 floating-point $A\cdot B$ was exactly 0, confirming that the fixed-point path
 is lossless. For the worked example ($A=1..16$, $B=16..1$ row-major) the array
-returns
-\[
-C=\begin{bmatrix}80&70&60&50\\240&214&188&162\\400&358&316&274\\560&502&444&386\end{bmatrix}.
-\]
+returns $C_{00}=80$, $C_{12}=188$ and $C_{33}=386$, matching the reference.
 
 \begin{table}[t]
 \centering
@@ -448,7 +451,7 @@ NumPy golden model                & 224 & 2\,800 & 0 mismatches\\
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.78\textwidth]{waveform_worked_example.png}
+\includegraphics[width=0.92\textwidth]{waveform_worked_example.png}
 \caption{Simulation waveform (rendered from the VCD) of the worked example on the $4\times4$ array. Row $i$ of $A$ and column $j$ of $B$ enter $i$ (resp.\ $j$) cycles late, producing the diagonal wavefront; PE(0,0) holds its final value from cycle 7, PE(1,2) from cycle 10 and PE(3,3) from cycle 13; \texttt{done} is asserted $3N+1=13$ cycles after \texttt{start} is sampled.}
 \label{fig:wave}
 \end{figure*}
@@ -456,9 +459,9 @@ NumPy golden model                & 224 & 2\,800 & 0 mismatches\\
 % ============================================================================
 \section{Performance and Implementation Results}
 
-\subsection{Latency and throughput}
+\subsection{Latency and Throughput}
 Table~\ref{tab:cycles} lists the measured start-to-done latencies. They match
-Eqs.~(2) and (3) exactly for every $N$. The systolic latency is linear in
+\eqref{eq:lsys} and \eqref{eq:lseq} exactly for every $N$. The systolic latency is linear in
 $N$ while the baseline is cubic, so the cycle speed-up grows as
 \begin{equation}
 S(N)=\frac{N^2(N+1)+1}{3N+1}\approx\frac{N^2}{3},
@@ -491,12 +494,12 @@ $N$ & MACs & Systolic & Sys.\ (PIPE) & Sequential & Speed-up\\
 \includegraphics[width=0.325\textwidth]{latency_vs_N.png}\hfill
 \includegraphics[width=0.325\textwidth]{speedup_vs_N.png}\hfill
 \includegraphics[width=0.325\textwidth]{throughput_vs_N.png}
-\caption{Measured results versus matrix size: latency in cycles (left, log scale), cycle speed-up over the sequential baseline (centre) and throughput in MACs per cycle (right).}
+\caption{Measured results versus matrix size: latency in cycles (left, log scale), cycle speed-up over the sequential baseline (center) and throughput in MACs per cycle (right).}
 \label{fig:speedup}\label{fig:thr}
 \end{figure*}
 
-\subsection{Resource utilisation and timing}
-The RTL was synthesised with Yosys~\cite{yosys} for the Xilinx Artix-7
+\subsection{Resource Utilization and Timing}
+The RTL was synthesized with Yosys~\cite{yosys} for the Xilinx Artix-7
 (\texttt{synth\_xilinx}) and for the Lattice ECP5-25F, which was then placed
 and routed with nextpnr~\cite{shah2019yosys} to obtain a post-route maximum
 frequency. A Vivado batch script and Basys-3 constraints are provided to
@@ -523,14 +526,14 @@ Sequential 1-MAC, $N=4$             & 35  & 40 & 28  & 1  & 161   & 60    & 1  &
 
 On Artix-7 each MAC (multiplier, 32-bit adder and accumulator register) is
 absorbed entirely into one DSP48E1 slice~\cite{xilinx2018dsp48}, which is why
-the 4$\times$4 array needs only 233 LUTs and 789 FFs (mostly operand,
+the 4$\times$4 array needs only 233 LUTs and 789 flip-flops (FFs) (mostly operand,
 skew and output registers). ECP5's MULT18X18D has no post-adder in this
 mapping, so the accumulators and carry chains are built in fabric, raising
 LUT4 and FF counts. The DSP count scales as $N^2$ and is the resource that
 limits array size: the ECP5-25F (28 multipliers) fits up to $5\times5$,
 whereas a Basys-3 xc7a35t (90 DSP48E1) fits up to $9\times9$.
 
-\subsection{Comparison with the baseline}
+\subsection{Comparison with the Baseline}
 Table~\ref{tab:wall} converts cycles to time at each design's own post-route
 $F_{\max}$. The $4\times4$ array completes a product in 129.4\,ns (110.2\,ns
 pipelined) against 874.2\,ns for the baseline: a $6.8\times$ ($7.9\times$)
@@ -538,7 +541,7 @@ wall-clock speed-up, delivering 1.16\,GOPS (1\,MAC = 2\,ops) with 16 multipliers
 Per multiplier the array is about half as efficient as the baseline
 (0.073 vs.\ 0.146\,GOPS/DSP) because the isolated-job latency includes
 $2N-1$ fill/drain cycles in which most PEs idle; this is the classic
-systolic utilisation cost, discussed next.
+systolic utilization cost, discussed next.
 
 \begin{table}[t]
 \centering
@@ -560,13 +563,13 @@ Speed-up (pipelined vs.\ seq.) & \multicolumn{4}{r}{$7.93\times$ latency, $7.95\
 
 \subsection{Discussion}\label{sec:disc}
 \textbf{Pipelining trade-off.} Registering the product adds one cycle
-($13\to14$) but raises $F_{\max}$ by 26\,\% ($100.5\to127.0$\,MHz), a net
-15\,\% latency reduction---a direct application of the pipelining principle
+($13\to14$) but raises $F_{\max}$ by 26\% ($100.5\to127.0$\,MHz), a net
+15\% latency reduction---a direct application of the pipelining principle
 of the course: deeper pipelines trade latency in cycles for a shorter clock
 period.
 
-\textbf{PE utilisation.} During one job each PE is busy for $N$ of the
-$3N+1$ cycles ($31\,\%$ for $N=4$). Because the controller can accept a new
+\textbf{PE utilization.} During one job each PE is busy for $N$ of the
+$3N+1$ cycles (31\% for $N=4$). Because the controller can accept a new
 \texttt{start} as soon as the previous results are captured, and because
 the output registers decouple read-out from computation, the array could be
 extended with double-buffered accumulators so that job $m+1$ is fed while job
@@ -579,18 +582,18 @@ reading $C$ costs $N^2=16$ cycles for $N=4$. End-to-end, the systolic
 design takes $32+13+16=61$ cycles against $32+81+16=129$, a $2.1\times$
 speed-up. Exactly as Kung argued~\cite{kung1982why}, a systolic array is only
 as fast as the bandwidth that feeds it; real accelerators use wide on-chip
-SRAM buffers and DMA (TPU's 24\,MiB unified buffer~\cite{jouppi2017tpu}).
+static random-access memory (SRAM) buffers and direct memory access (DMA) (TPU's 24\,MiB unified buffer~\cite{jouppi2017tpu}).
 
 
 \textbf{Limitations and future work.} (i) Matrices larger than $N\times N$
 require tiling in software or a tiling controller; (ii) the accumulator is not
-saturated or re-quantised back to 8 bits; (iii) a weight-stationary mode as
+saturated or re-quantized back to 8 bits; (iii) a weight-stationary mode as
 in Gemmini~\cite{genc2021gemmini} and an AXI-Stream interface would make the
 design usable as a real SoC peripheral.
 
 % ============================================================================
 \section{Conclusion}
-We designed, verified and implemented a parameterised output-stationary
+We designed, verified and implemented a parameterized output-stationary
 systolic-array accelerator for INT8/Q3.4 fixed-point matrix multiplication.
 The design follows the brief's workflow---one PE, then the array, then
 streaming and verification against a reference model---and exhibits exactly
@@ -602,21 +605,18 @@ that shape commercial AI accelerators.
 
 % ============================================================================
 \section*{Individual Contributions}
-\noindent\begin{minipage}{\columnwidth}
-\centering
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\columnwidth}>{\raggedright\arraybackslash}p{0.64\columnwidth}@{}}
+{\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.34\columnwidth}>{\raggedright\arraybackslash}p{0.57\columnwidth}@{}}
 \toprule
-Member (Enrolment) & Contribution\\
+Member (Enrollment No.) & Contribution\\
 \midrule
-Syed Darain Qamar (2401010472) & Team lead; system architecture and dataflow selection; \texttt{systolic\_array} and \texttt{systolic\_top} integration; latency model.\\
-Md Sajjan (2401010272) & \texttt{mac\_unit} and \texttt{pe} RTL; fixed-point format; pipelined-MAC variant; MAC/PE testbenches.\\
-Sibtain Ahmed Qureshi (2401010454) & Controller FSM; input, skew and output buffers; matrix data interface; drain-time analysis.\\
-Abuzar Haideri (2401010024) & System and comparison testbenches; reference and NumPy golden models; waveform verification.\\
-Antik Mandal (2401010084) & Sequential baseline; synthesis/P\&R flow; Basys-3 demo and constraints; performance analysis and report.\\
+Syed Darain Qamar\newline(2401010472) & Team lead; architecture and dataflow; \texttt{systolic\_array} and \texttt{systolic\_top}; latency model.\\
+Md Sajjan\newline(2401010272) & \texttt{mac\_unit} and \texttt{pe}; fixed-point format; pipelined MAC; unit testbenches.\\
+Sibtain Ahmed Qureshi\newline(2401010454) & Controller FSM; input, skew and output buffers; data interface.\\
+Abuzar Haideri\newline(2401010024) & System and comparison testbenches; reference and NumPy models; waveforms.\\
+Antik Mondal\newline(2401010084) & Sequential baseline; synthesis and place-and-route; Basys-3 demo; performance analysis.\\
 \bottomrule
-\end{tabular}
-\end{minipage}
+\end{tabular}}
 
 % ============================================================================
 \begin{thebibliography}{99}
@@ -630,14 +630,18 @@ pp.~256--282.
 H.~T. Kung, ``Why systolic architectures?'' \emph{Computer}, vol.~15, no.~1,
 pp.~37--46, Jan. 1982.
 
-\bibitem{kung1988vlsi}
-S.~Y. Kung, \emph{VLSI Array Processors}. Englewood Cliffs, NJ, USA:
-Prentice Hall, 1988.
-
 \bibitem{jouppi2017tpu}
 N.~P. Jouppi \emph{et al.}, ``In-datacenter performance analysis of a tensor
 processing unit,'' in \emph{Proc. 44th Annu. Int. Symp. Comput. Archit.
 (ISCA)}, Toronto, ON, Canada, 2017, pp.~1--12.
+
+\bibitem{hennessy2019ca}
+J.~L. Hennessy and D.~A. Patterson, \emph{Computer Architecture: A
+Quantitative Approach}, 6th~ed. Cambridge, MA, USA: Morgan Kaufmann, 2019.
+
+\bibitem{kung1988vlsi}
+S.~Y. Kung, \emph{VLSI Array Processors}. Englewood Cliffs, NJ, USA:
+Prentice Hall, 1988.
 
 \bibitem{chen2017eyeriss}
 Y.-H. Chen, T.~Krishna, J.~S. Emer, and V.~Sze, ``Eyeriss: An
@@ -669,30 +673,30 @@ B.~Jacob \emph{et al.}, ``Quantization and training of neural networks for
 efficient integer-arithmetic-only inference,'' in \emph{Proc. IEEE/CVF Conf.
 Comput. Vis. Pattern Recognit. (CVPR)}, 2018, pp.~2704--2713.
 
-\bibitem{hennessy2019ca}
-J.~L. Hennessy and D.~A. Patterson, \emph{Computer Architecture: A
-Quantitative Approach}, 6th~ed. Cambridge, MA, USA: Morgan Kaufmann, 2019.
+\bibitem{xilinx2018dsp48}
+Xilinx Inc., ``7 Series DSP48E1 Slice User Guide,'' UG479 (v1.10), Mar. 2018.
 
 \bibitem{patterson2020cod}
 D.~A. Patterson and J.~L. Hennessy, \emph{Computer Organization and Design
 RISC-V Edition: The Hardware/Software Interface}, 2nd~ed. Cambridge, MA,
 USA: Morgan Kaufmann, 2020.
 
-\bibitem{xilinx2018dsp48}
-Xilinx Inc., ``7 Series DSP48E1 Slice User Guide,'' UG479 (v1.10), Mar. 2018.
+\bibitem{icarus}
+S.~Williams, ``Icarus Verilog.'' Accessed: Nov. 18, 2026. [Online]. Available:
+\url{https://steveicarus.github.io/iverilog/}
+
+\bibitem{numpy}
+C.~R. Harris \emph{et al.}, ``Array programming with NumPy,'' \emph{Nature},
+vol.~585, no.~7825, pp.~357--362, Sep. 2020.
 
 \bibitem{yosys}
-C.~Wolf, ``Yosys Open SYnthesis Suite.'' [Online]. Available:
-\url{https://yosyshq.net/yosys/}
+C.~Wolf, ``Yosys Open SYnthesis Suite.'' Accessed: Nov. 18, 2026. [Online].
+Available: \url{https://yosyshq.net/yosys/}
 
 \bibitem{shah2019yosys}
 D.~Shah \emph{et al.}, ``Yosys+nextpnr: An open source framework from Verilog
 to bitstream for commercial FPGAs,'' in \emph{Proc. IEEE 27th Annu. Int. Symp.
 Field-Programmable Custom Comput. Mach. (FCCM)}, 2019, pp.~1--4.
-
-\bibitem{icarus}
-S.~Williams, ``Icarus Verilog.'' [Online]. Available:
-\url{https://steveicarus.github.io/iverilog/}
 
 \end{thebibliography}
 
